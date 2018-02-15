@@ -6,7 +6,29 @@
 </head>
 
 <body>
-<p>hello world</p>
+  <div class="search">
+      <select aria-describedby="searchDropdownDescription" class="nav-search-dropdown searchSelect" data-nav-digest="b+NVqFxrV5DkCPhQzL124zEZUGc" data-nav-selected="0" id="searchDropdownBox" name="url" style="display: block; top: 0px;" tabindex="5" title="次の中から検索">
+        <option selected="selected" value="search-alias=aps">すべてのカテゴリー</option>
+
+        <option value="search-alias=pop">ポップ</option>
+        <option value="search-alias=jazz">ジャズ</option>
+        <option value="search-alias=heavy-metal">ヘビメタ</option>
+        <option value="search-alias=クラシック">クラシック</option>
+
+      </select>
+      <%= form_tag products_path, :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "検索", :name => nil %>
+        </p>
+      <% end %>
+      <%= yield %>
+  </div>
+
+
+
+
+
 </body>
 
 </html>
