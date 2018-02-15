@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 1
+  id: 1
+  disc_name: MyString
+  disc_number: MyString
+
+two:
+  product_id: 1
+  id: 1
+  disc_name: MyString
+  disc_number: MyString

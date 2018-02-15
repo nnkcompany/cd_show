@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  user_id: 1
+  price: 1
+  artist_name: MyString
+  artist_name_kana: MyString
+  artist_name_eng: MyString
+  cd_name: MyString
+  label_name: MyString
+  label_name_kana: MyString
+  label_name_eng: MyString
+  category: MyString
+  quantity: MyString
+
+two:
+  id: 1
+  user_id: 1
+  price: 1
+  artist_name: MyString
+  artist_name_kana: MyString
+  artist_name_eng: MyString
+  cd_name: MyString
+  label_name: MyString
+  label_name_kana: MyString
+  label_name_eng: MyString
+  category: MyString
+  quantity: MyString
