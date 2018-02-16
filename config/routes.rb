@@ -14,4 +14,7 @@ Rails.application.routes.draw do
 	# 		 sessions: 'users/sessions'
 	# }
 
+	root 'products#index'
+
+
 end
