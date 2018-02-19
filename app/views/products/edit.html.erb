@@ -1,8 +1,8 @@
-<h1>新規投稿</h1>
-<!-- form_for部分 -->
+<h1>編集画面</h1>
 <%= form_for(@product) do |f| %>
 
 	<h4>ジャケット画像</h4>
+	<%= attachment_image_tag @product, :cd_image, :fill, 100, 100, format: 'jpeg' %>
 	<%= f.attachment_field :cd_image %>
 
     <h4>アーティスト名</h4>
@@ -37,11 +37,10 @@
 
 <br>
 <br>
-    <%= f.submit '登録' %>
+    <%= f.submit '更新' %><br>
+<br>
+    <span><%=link_to "TOPに戻る", root_path %></span><br>
 <br>
 <br>
 
 <% end %>
-
-
-
