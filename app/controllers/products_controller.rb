@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
 
 	def index
 		@products = Product.all
+		@products = Product.page(params[:page]).reverse_order
 		# @products = Product.search(params[:search])
 	end
 
@@ -15,6 +16,8 @@ class ProductsController < ApplicationController
 
 	def create
 		@product = Product.new(product_params)
+		@product.save
+		redirect_to '/products'
 	end
 
 	def update

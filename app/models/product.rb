@@ -7,6 +7,6 @@ class Product < ApplicationRecord
 	has_many :product_orders
 	has_many :carts, through: :product_carts
 
-	belongs_to :user
+	# belongs_to :user
 
 end
