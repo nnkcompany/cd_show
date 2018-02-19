@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 
-	attachment :image
+	attachment :cd_image
 
 	has_many :disks
 	has_many :product_carts
