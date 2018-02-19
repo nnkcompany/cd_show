@@ -1,0 +1,33 @@
+<h1>ユーザー詳細</h1>
+
+<table>
+
+	<thead>
+		<tr>
+			<th>last_name</th>
+			<th>last_name_kana</th>
+			<th>first_name</th>
+			<th>first_name_kana</th>
+			<th>zip</th>
+			<th>address</th>
+			<th>tell</th>
+			<th>create_at</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= @user.last_name %></td>
+			<td><span><%= @user.last_name_kana %></span></td>
+			<td><span><%= @user.first_name %></span></td>
+			<td><span><%= @user.first_name_kana%></span></td>
+			<td><span><%= @user.zip %></span></td>
+			<td><span><%= @user.address %></span></td>
+			<td><span><%= @user.tell %></span></td>
+			<td><span><%= @user.created_at %></span></td>
+
+		</tr>
+	</tbody>
+</table>
+
+<span><%= link_to "ユーザー編集", edit_user_path %></span>
+
