@@ -1,0 +1,25 @@
+current directory: /vagrant/nnk/vendor/bundle/ruby/2.3.0/gems/byebug-10.0.0/ext/byebug
+/usr/bin/ruby2.3 -r ./siteconf20180219-15086-12eue9d.rb extconf.rb
+creating Makefile
+
+current directory: /vagrant/nnk/vendor/bundle/ruby/2.3.0/gems/byebug-10.0.0/ext/byebug
+make "DESTDIR=" clean
+make: Warning: File `Makefile' has modification time 5.4e+02 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /vagrant/nnk/vendor/bundle/ruby/2.3.0/gems/byebug-10.0.0/ext/byebug
+make "DESTDIR="
+make: Warning: File `Makefile' has modification time 5.4e+02 s in the future
+compiling locker.c
+compiling byebug.c
+compiling context.c
+compiling breakpoint.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /vagrant/nnk/vendor/bundle/ruby/2.3.0/gems/byebug-10.0.0/ext/byebug
+make "DESTDIR=" install
+make: Warning: File `Makefile' has modification time 5.4e+02 s in the future
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20180219-15086-1crt2z5/byebug
+make: warning:  Clock skew detected.  Your build may be incomplete.

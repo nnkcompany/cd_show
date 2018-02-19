@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NnkCompany2</title>
+    <title>CdShop</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,39 @@
   </head>
 
   <body>
+  	<header class="header">
+  			<ul class="nav_list">
+  				<% if user_signed_in? %>
+  					<li class="">
+            <span><%= link_to "nnk", root_path %></span>
+            </li>
+            <li class="">
+            <p><%= current_user.last_name %><%= current_user.first_name %></p>
+            </li>
+            <li class="">
+  			<span><%= link_to "Logout", destroy_user_session_path, method: :delete %></span>
+  			</li>
+            <li class="">
+            <span><%= link_to "Mypage", user_path(current_user.id) %></span>
+            </li>
+            <li class="">
+            <span><%= link_to "Cart" %></span>
+            </li>
+
+            <% else %>
+            <li class="">
+            <span><%= link_to "Signup", new_user_registration_path %></span>
+            </li>
+            <li class="">
+            <span><%= link_to "Login", new_user_session_path %></span>
+            </li>
+            <li class="">
+            <span><%= link_to "nnk", root_path %></span>
+            </li>
+          <% end %>
+        </ul>
+    </header>
+
     <%= yield %>
   </body>
 </html>

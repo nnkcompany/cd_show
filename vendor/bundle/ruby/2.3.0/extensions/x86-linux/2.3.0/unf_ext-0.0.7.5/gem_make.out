@@ -1,0 +1,26 @@
+current directory: /vagrant/nnk/vendor/bundle/ruby/2.3.0/gems/unf_ext-0.0.7.5/ext/unf_ext
+/usr/bin/ruby2.3 -r ./siteconf20180219-15086-14jhoxo.rb extconf.rb
+checking for main() in -lstdc++... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /vagrant/nnk/vendor/bundle/ruby/2.3.0/extensions/x86-linux/2.3.0/unf_ext-0.0.7.5/mkmf.log
+
+current directory: /vagrant/nnk/vendor/bundle/ruby/2.3.0/gems/unf_ext-0.0.7.5/ext/unf_ext
+make "DESTDIR=" clean
+make: Warning: File `Makefile' has modification time 5.4e+02 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /vagrant/nnk/vendor/bundle/ruby/2.3.0/gems/unf_ext-0.0.7.5/ext/unf_ext
+make "DESTDIR="
+make: Warning: File `Makefile' has modification time 5.4e+02 s in the future
+compiling unf.cc
+linking shared-object unf_ext.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /vagrant/nnk/vendor/bundle/ruby/2.3.0/gems/unf_ext-0.0.7.5/ext/unf_ext
+make "DESTDIR=" install
+make: Warning: File `Makefile' has modification time 5.4e+02 s in the future
+/usr/bin/install -c -m 0755 unf_ext.so ./.gem.20180219-15086-2on1ry
+make: warning:  Clock skew detected.  Your build may be incomplete.

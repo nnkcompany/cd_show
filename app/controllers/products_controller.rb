@@ -5,10 +5,12 @@ class ProductsController < ApplicationController
 	end
 
 	def index
+
 		# @products = Product.page(params[:page]).reverse_order
 		@products = Product.all.reverse_order
 		@q = Product.search(params[:q])
 		@products = @q.result(distinct: true).page(params[:page])
+
 	end
 
 	def show
@@ -19,10 +21,12 @@ class ProductsController < ApplicationController
 		@product = Product.new(product_params)
 		@product.save
 		redirect_to '/products'
+
 	end
 
 	def edit
 		@product = Product.find(params[:id])
+
 	end
 
 	def update

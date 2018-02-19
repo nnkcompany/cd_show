@@ -1,0 +1,19 @@
+<h1>ユーザー編集</h1>
+<%= form_for @user do |f| %>
+      <label>last_name</label>
+      <%= f.text_field :last_name, autofocus: true%></br>
+      <label>last_name_kana</label>
+      <%= f.text_field :last_name_kana, autofocus: true%></br>
+      <label>first_name</label>
+      <%= f.text_field :first_name, autofocus: true%></br>
+      <label>first_name_kana</label>
+      <%= f.text_field :first_name_kana, autofocus: true%></br>
+      <label>zip</label>
+      <%= f.text_field :zip, autofocus: true%></br>
+      <label>address</label>
+      <%= f.text_field :address, autofocus: true%></br>
+      <label>tell</label>
+      <%= f.text_field :tell, autofocus: true%></br>
+
+      <%= submit_tag "更新" %>
+<% end %>
