@@ -1,0 +1,76 @@
+
+<h1>新商品一覧</h1><br>
+
+  <%= search_form_for @q do |f| %>
+<div cladss="center-block"  >
+
+    <table>
+      <tr>
+        <th><%= f.label :artist_name, "アーティスト名から検索" %>&emsp;</th>
+        <td><%= f.search_field :artist_name_or_artist_name_kana_or_artist_name_eng_cont %></td>
+      </tr><br />
+
+      <tr>
+        <th><%= f.label :cd_name, "アルバム・シングル名から検索" %>&emsp;&emsp;</th>
+        <td><%= f.search_field :cd_name_start %></td>
+      </tr><br />
+
+      <tr>
+        <th><%= f.label :category, "ジャンルから検索" %></th>
+        <td><%= f.search_field :category_start %></td>
+      </tr><br />
+    </table>
+
+          <%= f.submit '検索' %>
+
+</div>
+<% end %>
+<br>
+
+ <% @products.each do |product| %>
+
+  <div cladss="center-block">
+
+      <table>
+          <div class="" >
+            <%= attachment_image_tag product, :cd_image, :fill, 100, 100, format: 'jpeg' %>
+          </div>
+        <tr class="" >
+          <th>アーティスト&emsp;</th>
+          <td><span><%= product.artist_name .truncate(12) %></span></td>
+            <% product.artist_name_eng .truncate(12) %>
+        </tr>
+
+        <tr class="">
+          <th>アルバム・シングル名&emsp;</th>
+          <td><span><%= product.cd_name .truncate(12) %></span></td>
+        </tr>
+
+        <tr class="">
+          <th>ジャンル&emsp;</th>
+          <td><span><%= product.category .truncate(12) %></span></td>
+        </tr>
+
+        <tr class="">
+          <th>価格&emsp;</th>
+          <td>¥ <span><%= product.price %></span></td>
+        </tr>
+      </table>
+
+        <div class="">
+          <span><%=link_to "詳細", product_path(product.id) %></span>
+        </div>
+
+    </div>
+  </div>
+<% end %>
+
+<div cladss="center-block">
+  <div class="col-lg-5"></div>
+  <div class="col-lg-3">
+    <%= paginate @products, class: "pagenate" %>
+  </div>
+  <div class="col-lg-4"></div>
+</div>
+
+
