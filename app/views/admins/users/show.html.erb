@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="col-md-12"> 
+　   <h1 style="display:inline;">管理者用/ユーザー情報</h1>
+    <hr>
+	</div>
+		<h3 class="my-3">ユーザー詳細</h3>
+		<ul>
+			<li class="text-left">名前：<%= @user.last_name %><%= @user.first_name %></li>
+			<li class="text-left">ふりがな：<%= @user.last_name_kana %><%= @user.first_name_kana %></li>
+			<li class="text-left">郵便番号：<%= @user.zip %></li>
+			<li class="text-left">住所：<%= @user.address %></li>
+			<li class="text-left">電話番号<%= @user.tell %></li>
+			<li class="text-left">ユーザー登録日:<%= @user.created_at.strftime("%m#{"月"}%d#{"日"}%R") %></li>
+		</ul>
+		<%= link_to "ユーザー編集", edit_admins_user_path(@user), class: "btn btn-success" %>
+	</div>
+</div>
+
