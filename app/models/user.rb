@@ -4,6 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def soft_delete
+    update(deleted_at: Time.now)
+  end
+
+  def active_for_authentication?
+   !deleted_at
+  end
+
   has_many :products
   has_many :addresses
   has_many :orders
