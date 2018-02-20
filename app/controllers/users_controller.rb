@@ -14,6 +14,13 @@ class UsersController < ApplicationController
 		redirect_to root_path
 	end
 
+	def destroy
+    	@user = User.find(params[:id])
+    	@user.soft_delete
+    	sign_out(@user)
+    	redirect_to root_path
+    end
+
 	private
 	def user_params
   	params.require(:user).permit(:last_name, :last_name_kana, :first_name, :first_name_kana, :zip, :address, :tell)

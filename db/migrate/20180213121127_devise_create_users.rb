@@ -39,6 +39,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :zip
       t.string :address
       t.string :tell
+      t.datetime :deleted_at
       t.timestamps null: false
       t.timestamps null: false
     end
