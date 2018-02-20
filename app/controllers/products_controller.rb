@@ -43,8 +43,8 @@ class ProductsController < ApplicationController
 
 private
 
-  def product_params
-    params.require(:product).permit(:artist_name, :artist_name_kana, :artist_name_eng, :cd_name, :price, :label_name, :label_name_kana, :label_name_eng, :category, :quantity, :cd_image )
-  end
+	def product_params
+		params.require(:product).permit(:artist_name, :artist_name_kana, :artist_name_eng, :cd_name, :price, :label_name, :label_name_kana, :label_name_eng, :category, :quantity, :cd_image,:discs_attributes => [:id, :disc_name, :product_id, :disc_number,  :_destroy])
+	end
 
 end

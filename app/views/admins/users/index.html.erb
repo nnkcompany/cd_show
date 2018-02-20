@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="col-xs-12">
+		<h1 class="my-4">ユーザー情報</h1>
+		<hr>
+		<div class="row">
+			<table class="table table-hover">
+				<tbody>
+					<tr>
+						<td>ユーザーID</td>
+						<td>ユーザー登録日</td>
+						<td>ユーザー名</td>
+						<td>詳細</td>
+						<td>編集</td>
+						<td>削除</td>
+					</tr>
+					<% @users.each do |user| %>
+						<tr>
+							<td><%= user.id %></td>
+							<td><%= user.created_at.strftime("%m#{"月"}%d#{"日"}%R")  %></td>
+							<td><%= user.last_name %><%= user.first_name %></td>
+							<td><%= link_to "詳細", admins_user_path(user.id), class: "btn btn-success" %></td>
+							<td><%= link_to "編集", edit_admins_user_path(user.id), class: "btn btn-success" %></td>
+							<td><%= link_to "削除", admins_user_path(user.id), method: :delete, class: "btn btn-danger", data: { confirm: '本当に消しますか?'} %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
