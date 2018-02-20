@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CdShop</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<header class="header">
+  			<ul class="nav_list">
+  				<% if user_signed_in? %>
+          <!--ログアウト中-->
+  					<li class="">
+                <span><%= link_to "nnk record 渋谷店", root_path %></span>
+            </li>
+            <li class="">
+                <p><%= current_user.last_name %><%= current_user.first_name %></p>
+            </li>
+            <li class="">
+                <span><%= link_to "TOPへ", products_path %></span>
+            </li>
+            <li class="">
+                <span><%= link_to "Logout", destroy_user_session_path, method: :delete %></span>
+            </li>
+
+
+            <% else %>
+            <!--ログアウト中-->
+            <li class="">
+                <span><%= link_to "nnk record 渋谷店", root_path %></span>
+            </li>
+
+            <li class="">
+                 <span><%= link_to "TOPへ", products_path %></span>
+            </li>
+          <% end %>
+        </ul>
+    </header>
+
+    <%= yield %>
+  </body>
+</html>
