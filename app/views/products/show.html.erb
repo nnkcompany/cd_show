@@ -37,6 +37,18 @@
 
 </table>
 
+<% @discs.discs.each do |disc| %>
+  <%= disc.disc_number %>
+  <%= disc.disc_name %>
+
+    <% disc.songs.each do |song| %>
+      <%= song.song_title %><br>
+    <% end %>
+
+<% end %>
+
+
+
 <br>
 <br>
 <span><%=link_to "カートに入れる", cart_path %></span><br>

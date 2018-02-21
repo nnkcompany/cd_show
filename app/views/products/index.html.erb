@@ -2,7 +2,8 @@
 <h1>新商品一覧</h1><br>
 
   <%= search_form_for @q do |f| %>
-<div cladss="center-block"  >
+<div cladss="center-block"  style="
+    margin-top: -55px; margin-left: 17px; " >
 
     <table>
       <tr>
@@ -30,9 +31,9 @@
  <% @products.each do |product| %>
 
   <div cladss="center-block">
-
+    <div class="col-lg-2">
       <table>
-          <div class="" >
+          <div class="cd_image_index" >
             <%= attachment_image_tag product, :cd_image, :fill, 100, 100, format: 'jpeg' %>
           </div>
         <tr class="" >
