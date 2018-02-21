@@ -6,7 +6,7 @@
     <div class="row product_show">
         <div class="col-md-12">
             <ul>
-                <%= form_for @users, url: admins_user_path , html: {method: "get"} do |f| %>
+                <%= form_for @users, url: admins_user_path , html: {method: "PATCH"} do |f| %>
                     <li>名前:<%=f.text_field :last_name ,:placeholder => "苗字" %>名前:<%=f.text_field :first_name  ,:placeholder => "名前"  %></li>
                     <li>ふりがな:<%=f.text_field :last_name_kana ,:placeholder => "みょうじ"  %><%=f.text_field :first_name_kana  ,:placeholder => "なまえ" %></li>
                     <li>郵便番号:<%=f.text_field :zip %></li>
