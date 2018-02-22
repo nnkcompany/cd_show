@@ -22,9 +22,9 @@ Rails.application.routes.draw do
 	resources :users
 	resources :carts
 	resources :orders
-	resources :products
-	resource :product_carts, only: [:create,:destroy]
-
+	resources :products do
+		resource :product_carts, only: [:create,:destroy]
+	end
 
 	root 'products#index'
 	post '/products' => 'products#create'

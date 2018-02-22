@@ -1,1 +1,7 @@
 <p>カートの内容</p>
+
+
+ <% current_user.cart.product_carts.each do |product_cart| %>
+<%= product_cart.product.cd_name %>
+<%= product_cart.product.artist_name %>
+<% end %>

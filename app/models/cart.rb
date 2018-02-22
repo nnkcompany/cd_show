@@ -8,3 +8,4 @@ class Cart < ApplicationRecord
 
 
 end
+
