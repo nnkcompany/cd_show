@@ -32,34 +32,34 @@
 
   <div cladss="center-block">
     <div class="col-lg-2">
-      <table>
+      <table class="ichiran">
           <div class="cd_image_index" >
             <%= attachment_image_tag product, :cd_image, :fill, 100, 100, format: 'jpeg' %>
           </div>
-        <tr class="" >
+        <tr class="index_tr" >
           <th>アーティスト&emsp;</th>
           <td><span><%= product.artist_name .truncate(12) %></span></td>
             <% product.artist_name_eng .truncate(12) %>
         </tr>
 
-        <tr class="">
+        <tr class="index_tr">
           <th>アルバム・シングル名&emsp;</th>
           <td><span><%= product.cd_name .truncate(12) %></span></td>
         </tr>
 
-        <tr class="">
+        <tr class="index_tr">
           <th>ジャンル&emsp;</th>
           <td><span><%= product.category .truncate(12) %></span></td>
         </tr>
 
-        <tr class="">
+        <tr class="index_tr">
           <th>価格&emsp;</th>
           <td>¥ <span><%= product.price %></span></td>
         </tr>
       </table>
 
-        <div class="">
-          <span><%=link_to "詳細", product_path(product.id) %></span>
+        <div class="index_show">
+          <span><%=link_to "詳　細", product_path(product.id) %></span>
         </div>
 
     </div>

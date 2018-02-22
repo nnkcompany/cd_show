@@ -1,8 +1,9 @@
 
 
 
+/* index の css */
 
-.col-lg-2{
+.ichiran{
 	border: 1px solid #0f0f0f;
     width: 22%;
     margin: 0px 15px 20px;
@@ -10,10 +11,27 @@
 }
 
 .cd_image_index{
-	margin-left: 4%;
+	margin-left: 8%;
 	margin-bottom: 5px;
 }
 
+
+.index_tr{
+	font-size: 13px;
+}
+
+
+.index_show{
+	border: 1px solid darkblue;
+	text-align: center;
+	width: 15%;
+	margin: -10px 4% 15px;
+	background-color: blanchedalmond;
+}
+
+.col-lg-3{
+	font-size: 17px;
+}
 
 
 
