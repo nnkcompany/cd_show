@@ -9,13 +9,20 @@
   </head>
 
   <body>
-  	<header class="header">
-  			<ul class="nav_list">
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <nav class="nav navbar-nav navbar-left">
+          <ul class="nav navbar-nav navbar-left">
   				<% if user_signed_in? %>
           <!--ログアウト中-->
   					<li class="">
                 <span><%= link_to "nnk record 渋谷店", root_path %></span>
             </li>
+          </ul>
+        </nav>
+
+          <nav>
+          <ul class="nav navbar-nav navbar-right">
             <li class="">
                 <p><%= current_user.last_name %><%= current_user.first_name %></p>
             </li>
@@ -37,9 +44,12 @@
                  <span><%= link_to "TOPへ", products_path %></span>
             </li>
           <% end %>
-        </ul>
-    </header>
 
+        </ul>
+      </nav>
+    </div>
+    </header>
+<p id="notice"></p>
     <%= yield %>
   </body>
 </html>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     namespace :admins do
         resources :users
         resources :products
+        resources :homes,only: [:index]
     end
 
 	resources :users

@@ -11,8 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
 
-
-
   # ストロングパラメーター：アサインメント脆弱性のため
 
   protected
