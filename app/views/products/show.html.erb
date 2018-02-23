@@ -39,8 +39,12 @@
 
 <br>
 <br>
+
 <span><%=link_to "カートの内容", product_product_carts_path(@product.id), method: :post %></span><br>
+<% if admin_signed_in? %>
 <span><%=link_to "編集画面へ", edit_product_path(@product.id) %></span><br>
 <span><%=link_to "商品を削除する", destroy_product_path(@product.id), method: :delete %></span><br>
+<% end %>
+
 <br>
 <br>
