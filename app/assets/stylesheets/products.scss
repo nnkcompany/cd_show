@@ -5,11 +5,16 @@
 
 .pro_header{
 	text-align: center;
+	padding: 10px;
+    margin: 0px;
+    height: 56px;
+    background-image: url(http://caravan.web-camp.io/img/japan.jpg)
 }
 
+
 .cd_image_index{
-	margin-left: 8%;
 	margin-bottom: 5px;
+	text-align: center;
 }
 
 
@@ -20,11 +25,8 @@
 
 
 .index_show{
-	border: 1px solid darkblue;
 	text-align: center;
-	width: 32%;
-	margin: -10px 4% 15px;
-	background-color: blanchedalmond;
+	margin: -10px 35% 15px;
 }
 
 .col-lg-3{
