@@ -1,10 +1,17 @@
 <p>カートに入れる</p>
 
-
+<% sum = 0%>
  <% current_user.cart.product_carts.each do |product_cart| %>
 <%= product_cart.product.cd_name %>
 <%= product_cart.product.artist_name %>
-<%= product_cart.product.quantity %>
 <p>¥<%= product_cart.product.price %></p>
 
+
+
+<%# sum = 0%>
+<!-- sumがここだとsum=0すらもeachされるので合計にならない -->s
+<% sum += product_cart.product.price %>
 <% end %>
+
+合計金額<%= sum %>
+

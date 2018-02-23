@@ -4,7 +4,6 @@ def create
 	@product_cart = ProductCart.new(product_cart_params)
 	@product_cart.cart_id = current_user.cart.id
 	@product_cart.save
-	# binding.pry
 	redirect_to cart_path(current_user.cart.id)
 end
 
