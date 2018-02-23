@@ -4,9 +4,6 @@ class CartsController < ApplicationController
 		
 	end
 
-	def create
-	end
-
 	def update
 	end
 

@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
 
-	def new
-		@product = Product.new
-	end
+	# def new
+	# 	@product = Product.new
+	# end
 
 	def index
 		# @products = Product.page(params[:page]).reverse_order
@@ -13,14 +13,15 @@ class ProductsController < ApplicationController
 
 	def show
 		@product = Product.find(params[:id])
+		@discs = Product.find(params[:id])
 	end
 
-	def create
-		@product = Product.new(product_params)
-		@product.save
-		redirect_to '/products'
+	# def create
+	# 	@product = Product.new(product_params)
+	# 	@product.save
+	# 	redirect_to '/products'
 
-	end
+	# end
 
 	def edit
 		@product = Product.find(params[:id])
@@ -33,11 +34,11 @@ class ProductsController < ApplicationController
 		redirect_to product_path(@product.id)
 	end
 
-	def destroy
-		@product = Product.find(params[:id])
-		@product.destroy
-		redirect_to root_path
-	end
+	# def destroy
+	# 	@product = Product.find(params[:id])
+	# 	@product.destroy
+	# 	redirect_to root_path
+	# end
 
 private
 
