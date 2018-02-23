@@ -1,5 +1,6 @@
-
-<h1>新商品一覧</h1><br>
+<div class="pro_header">
+  <h1>新商品一覧</h1><br>
+</div>
 
   <%= search_form_for @q do |f| %>
 <div cladss="center-block"  style="
@@ -28,33 +29,38 @@
 <% end %>
 <br>
 
+<div>
+  
+  <div cladss="row">
+
  <% @products.each do |product| %>
 
-  <div cladss="center-block">
-    <div class="col-lg-2">
-      <table class="ichiran">
+    <div class="col-lg-3">
+      <table class="ichiran" style="
+        border: 1px solid #0f0f0f;
+        width: 97%; margin: 0px 15px 20px; padding: 5px 5px 0px;" >
           <div class="cd_image_index" >
             <%= attachment_image_tag product, :cd_image, :fill, 100, 100, format: 'jpeg' %>
           </div>
         <tr class="index_tr" >
-          <th>アーティスト&emsp;</th>
-          <td><span><%= product.artist_name .truncate(12) %></span></td>
+          <th class="th_tr">アーティスト&emsp;</th>
+          <td class="th_tr"><span><%= product.artist_name .truncate(12) %></span></td>
             <% product.artist_name_eng .truncate(12) %>
         </tr>
 
         <tr class="index_tr">
-          <th>アルバム・シングル名&emsp;</th>
-          <td><span><%= product.cd_name .truncate(12) %></span></td>
+          <th class="th_tr">アルバム・シングル名&emsp;</th>
+          <td class="th_tr"><span><%= product.cd_name .truncate(12) %></span></td>
         </tr>
 
         <tr class="index_tr">
-          <th>ジャンル&emsp;</th>
-          <td><span><%= product.category .truncate(12) %></span></td>
+          <th class="th_tr">ジャンル&emsp;</th>
+          <td class="th_tr"><span><%= product.category .truncate(12) %></span></td>
         </tr>
 
         <tr class="index_tr">
-          <th>価格&emsp;</th>
-          <td>¥ <span><%= product.price %></span></td>
+          <th class="th_tr">価格&emsp;</th>
+          <td class="th_tr">¥ <span><%= product.price %></span></td>
         </tr>
       </table>
 
@@ -63,8 +69,10 @@
         </div>
 
     </div>
-  </div>
 <% end %>
+  </div>
+
+
 
 <div cladss="center-block">
   <div class="col-lg-5"></div>
@@ -75,3 +83,4 @@
 </div>
 
 
+</div>
