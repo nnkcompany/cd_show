@@ -1,3 +1,4 @@
+
 class Product < ApplicationRecord
 
 	attachment :cd_image
