@@ -1,7 +1,10 @@
-<p>カートの内容</p>
+<p>カートに入れる</p>
 
 
  <% current_user.cart.product_carts.each do |product_cart| %>
 <%= product_cart.product.cd_name %>
 <%= product_cart.product.artist_name %>
+<%= product_cart.product.quantity %>
+<p>¥<%= product_cart.product.price %></p>
+
 <% end %>
