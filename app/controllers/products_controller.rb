@@ -5,12 +5,10 @@ class ProductsController < ApplicationController
 	end
 
 	def index
-
 		# @products = Product.page(params[:page]).reverse_order
 		@products = Product.all.reverse_order
 		@q = Product.search(params[:q])
 		@products = @q.result(distinct: true).page(params[:page])
-
 	end
 
 	def show
