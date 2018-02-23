@@ -12,7 +12,7 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
     }
 
-	
+
 
     namespace :admins do
         resources :users
@@ -24,13 +24,12 @@ Rails.application.routes.draw do
 	resources :carts
 	resources :orders
 
+
 	resources :products do
 		resource :product_carts, only: [:create,:destroy]
 	end
 
 	resources :products, only: [:index,:show,:edit,:update]
-	
-
 
 	root 'products#index'
 	delete '/products/:id' => 'products#destroy', as: 'destroy_product'
