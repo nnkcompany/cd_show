@@ -64,7 +64,10 @@
 <br>
 <br>
 
-<button type="button" style="font-size: 15px; margin-bottom: 5px;" ><%=link_to "カートに入れる", cart_path %></button><br>                 
+
+
+<button type="button" style="font-size: 15px; margin-bottom: 5px;" ><%=link_to "カートに入れる", product_product_carts_path(@product.id), method: :post %></button><br>                 
+
 <% if admin_signed_in? %>
 <button type="button" style="font-size: 15px; margin-bottom: 5px;" ><%=link_to "編集画面へ", edit_product_path(@product.id) %></button><br>
 <button type="button" style="font-size: 15px; margin-bottom: 5px;"><%=link_to "商品を削除する", destroy_product_path(@product.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></button><br>

@@ -4,6 +4,14 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def new
+	cart = Cart.new
+    cart.user_id = current_user.id
+    cart.save
+    # binding.pry
+    redirect_to root_path
+	end
+
 	def edit
 		@user = User.find(params[:id])
 	end
