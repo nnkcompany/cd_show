@@ -37,9 +37,9 @@
 
 <br>
 <br>
-    <%= f.submit '更新' %><br>
+    <%= f.submit '更新', data: {confirm: "更新しますか？"} %><br>
 <br>
-    <span><%=link_to "TOPに戻る", root_path %></span><br>
+    <span><%=link_to "TOPに戻る", root_path, data: {confirm: "更新せずにTOP画面へ戻ります"} %></span><br>
 <br>
 <br>
 
