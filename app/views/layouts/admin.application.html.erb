@@ -9,37 +9,57 @@
   </head>
 
   <body>
-  	<header class="header">
-  			<ul class="nav_list">
-  				<% if user_signed_in? %>
-          <!--ログアウト中-->
-  					<li class="">
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        
+        <% if admin_signed_in? %>
+          <!--ログイン中-->
+        <nav class="nav navbar-nav navbar-left">
+          <ul class="nav navbar-nav navbar-left">
+            <li class="">
                 <span><%= link_to "nnk record 渋谷店", root_path %></span>
             </li>
+          </ul>
+        </nav>
+
+         <nav class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right">
             <li class="">
-                <p><%= current_user.last_name %><%= current_user.first_name %></p>
+                <p><%#= current_user.last_name %><%#= current_user.first_name %></p>
             </li>
             <li class="">
-                <span><%= link_to "TOPへ", products_path %></span>
+                <span><%= link_to "ADMIN TOPへ", products_path %></span>
             </li>
             <li class="">
                 <span><%= link_to "Logout", destroy_user_session_path, method: :delete %></span>
             </li>
+          </ul>
+        </nav>
 
 
             <% else %>
             <!--ログアウト中-->
+        <nav class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right">
             <li class="">
                 <span><%= link_to "nnk record 渋谷店", root_path %></span>
             </li>
+          </ul>
+        </nav>
 
+         <nav class="nav navbar-nav navbar-left">
+          <ul class="nav navbar-nav navbar-left">
             <li class="">
                  <span><%= link_to "TOPへ", products_path %></span>
             </li>
-          <% end %>
-        </ul>
-    </header>
+          </ul>
+        </nav>
 
+
+        <% end %>
+    </div>
+    </header>
+<p id="notice"></p>
     <%= yield %>
   </body>
 </html>
