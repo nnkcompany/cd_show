@@ -11,33 +11,48 @@
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
+
+     <% if user_signed_in? %>
+        <!--ログイン中-->
         <nav class="nav navbar-nav navbar-left">
           <ul class="nav navbar-nav navbar-left">
-  				<% if user_signed_in? %>
   					<li class="">
             <span><%= link_to "nnk record 渋谷店", root_path %></span>
             </li>
           </ul>
         </nav>
 
-        <nav>
+        <nav class="nav navbar-nav navbar-right">
           <ul class="nav navbar-nav navbar-right">
             <li class="">
             <p><%= current_user.last_name %><%= current_user.first_name %></p>
             </li>
             <li class="">
   			<span><%= link_to "Logout", destroy_user_session_path, method: :delete %></span>
-  			</li>
+      			</li>
             <li class="">
             <span><%= link_to "Mypage", user_path(current_user.id) %></span>
             </li>
             <li class="">
             <span><%= link_to "Cart" %></span>
             </li>
+          </ul>
+        </nav>
 
 
             <% else %>
-            <li class="">
+ <!--ログアウト中-->
+        <nav class="nav navbar-nav navbar-left">
+          <ul class="nav navbar-nav navbar-left">
+             <li class="">
+            <span><%= link_to "nnk record 渋谷店", root_path %></span>
+            </li>
+          </ul>
+        </nav>
+
+        <nav class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right">
+           <li class="">
             <span><%= link_to "Signup", new_user_registration_path %></span>
             </li>
             <li class="">
@@ -46,9 +61,10 @@
             <li class="">
             <span><%= link_to "nnk", root_path %></span>
             </li>
-          <% end %>
-        </ul>
+          </ul>
       </nav>
+          <% end %>
+
     </div>
     </header>
 
