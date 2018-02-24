@@ -7,8 +7,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header class="navbar navbar-fixed-top navbar-inverse" style="margin-bottom: 0px;">
-    <div class="container" style="width: 1300px;">
+
+    <header class="navbar navbar-fixed-top navbar-inverse" style="margin-bottom: 0px;">
+      <div class="container" style="width: 1300px;">
 
      <% if user_signed_in? %>
         <!--ログイン中-->
@@ -22,18 +23,19 @@
 
         <nav class="nav navbar-nav navbar-right">
           <ul class="nav navbar-nav navbar-right" style=" width: 125%;">
+
             <li class="">
             <p class="head_word"><%= current_user.last_name %><%= current_user.first_name %>&emsp;</p>
-            </li>
-            <li class="">
-  			<span class="font"><%= link_to "マイページ", user_path(current_user.id) %>&emsp;</span>
       			</li>
+
+            <li class="">
+            <span class="font"><%= link_to "マイページ", user_path(current_user.id) %>&emsp;</span>
+            </li>
             <li class="">
             <span class="font"><%=link_to "カート", cart_path(current_user.cart.id) ,class: "text-center"%>&emsp;</span>
             </li>
             <li class="">
-             <span class="font"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>&emsp;</span>
-            </li>
+            <span class="font"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>&emsp;</span>
           </ul>
         </nav>
 
@@ -69,17 +71,18 @@
 
   <p id="notice"></p>
     <%= yield %>
+
 <hr>
 
-   <footer>
-     <div class="sticky_f">
-     <p>
-       <a>利用規約</a> |
-       <a>プライバシーポリシー</a> |
-       <a>サイトマップ</a>
-     </p>
-     <p style="color: white;"><small>Copyrighht © 2017 ABCD Co.,Ltd. All Rights Reserved.</small></p>
-   </div>
-   </footer>
+  <footer>
+    <div class="sticky_f">
+    <p>
+      <a>利用規約</a> |
+      <a>プライバシーポリシー</a> |
+      <a>サイトマップ</a>
+    </p>
+    <p style="color: white;"><small>Copyrighht © 2017 ABCD Co.,Ltd. All Rights Reserved.</small></p>
+  </div>
+  </footer>
 
 </html>

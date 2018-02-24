@@ -12,14 +12,10 @@
 				<tbody>
 					<tr>
 						<td>商品ID</td>
-						<td>商品画像</td>
 						<td>シングル/アルバム名</td>
 						<td>アーティスト名</td>
 						<td>カテゴリー名</td>
 						<td>レーベル名</td>
-						<!-- ここに本当に入れるの？ -->
-						<td>曲名</td>
-						<!-- ここに本当に入れるの？ -->
 						<td>在庫数</td>
 						<td>編集</td>
 						<td>削除</td>
@@ -27,12 +23,10 @@
 					<% @product.each do |product| %>
 						<tr>
 							<td><%= product.id %></td>
-							<td><%= product.cd_image %></td>
 							<td><%= product.cd_name %></td>
 							<td><%= product.artist_name %></td>
 							<td><%= product.category %></td>
 							<td><%= product.label_name %></td>
-							<td><%= product.id %></td>
 							<td><%= product.quantity %></td>
 							<td><%= link_to "編集", edit_admins_product_path(product.id), class: "btn btn-success" %></td>
 							<td><%= link_to "削除", admins_product_path(product.id), method: :delete, class: "btn btn-danger", data: { confirm: '本当に消しますか?'} %></td>

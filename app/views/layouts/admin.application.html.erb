@@ -11,54 +11,59 @@
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-        
-        <% if admin_signed_in? %>
-          <!--ログイン中-->
         <nav class="nav navbar-nav navbar-left">
           <ul class="nav navbar-nav navbar-left">
-            <li class="">
-                <span><%= link_to "nnk record 渋谷店", root_path %></span>
+            <li>
+              <%= link_to root_path do %>
+              <i class="glyphicon glyphicon-home"></i>nnk record 渋谷店
+              <% end %>
             </li>
           </ul>
         </nav>
 
-         <nav class="nav navbar-nav navbar-right">
+        <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li class="">
-                <p><%#= current_user.last_name %><%#= current_user.first_name %></p>
+            <% if admin_signed_in? %>
+            <!--ログイン中のヘッダー-->
+            <li>
+              <%= link_to admins_users_path do %>
+              <i class="glyphicon glyphicon-user"></i>admin/Users
+              <% end %>
+              
             </li>
-            <li class="">
-                <span><%= link_to "ADMIN TOPへ", products_path %></span>
-            </li>
-            <li class="">
-                <span><%= link_to "Logout", destroy_user_session_path, method: :delete %></span>
-            </li>
-          </ul>
-        </nav>
 
+            <li>
+              <%= link_to admins_products_path do %>
+              <i class="glyphicon glyphicon-folder-open"></i>admin/Products
+              <% end %>
+             
+            </li>
+            <li>
+              <%#= link_to admins_orders_path do %>
+              <i class="glyphicon glyphicon-shopping-cart"></i>admin/Orders
+              <%# end %>
+            </li>
 
+            <li>
+              <%= link_to destroy_user_session_path, :method => :delete do %>
+              <i class="glyphicon glyphicon-log-out"></i>Logout
+              <% end %>
+            </li>
             <% else %>
-            <!--ログアウト中-->
-        <nav class="nav navbar-nav navbar-right">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="">
-                <span><%= link_to "nnk record 渋谷店", root_path %></span>
+            <!--ログアウト中のヘッダー-->
+            <li>
+              <%= link_to new_user_session_path do %>
+              <i class="glyphicon glyphicon-log-in"></i>Login
+              <% end %>
             </li>
+
+            <% end %>
           </ul>
         </nav>
-
-         <nav class="nav navbar-nav navbar-left">
-          <ul class="nav navbar-nav navbar-left">
-            <li class="">
-                 <span><%= link_to "TOPへ", products_path %></span>
-            </li>
-          </ul>
-        </nav>
-
-
-        <% end %>
     </div>
     </header>
+
+
 <p id="notice"></p>
     <%= yield %>
   </body>

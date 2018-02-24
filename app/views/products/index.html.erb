@@ -1,28 +1,34 @@
 <div class="sticky">
-  <h1 class="pro_header">商品一覧</h1>
+  <div cladss="row">
+    <h1 class="pro_header" >商品一覧</h1>
 
-  <ul class="center-block" >
-    <%= search_form_for @q do |f| %>
+
+    <ul class="center-block" >
+     <%= search_form_for @q do |f| %>
+
       <table>
-        <%= f.label :product_show_area, "キーワードから検索" %>
-         <tr>
-           <th><p><%= f.search_field :artist_name_or_artist_name_kana_or_artist_name_eng_or_cd_name_or_category_or_label_name_or_label_name_kana_or_label_name_eng_cont %></p></th>
-           <th><input id="submit_button" type="submit" class="btn btn-primary" name="submit" value="検　索"></th>
-         </tr>
+          <%= f.label :product_show_area, "キーワードから検索" %>
+          <tr>
+            <th><p><%= f.search_field :artist_name_or_artist_name_kana_or_artist_name_eng_or_cd_name_or_category_or_label_name_or_label_name_kana_or_label_name_eng_cont %></p></th>
+            <th><input id="submit_button" type="submit" class="btn btn-primary" name="submit" value="検　索"></th>
+          </tr>
+
       </table>
     <% end %>
-  </ul>
+    </ul>
+  </div>
 <hr>
+</div>
 
 
-<div cladss="row">
-
+<div class="row">
  <% @products.each do |product| %>
 
+  <div cladss="center-block">
     <div class="col-lg-3" style="padding-top: 10px;">
       <table class="ichiran">
           <div class="cd_image_index" >
-            <%= attachment_image_tag product, :cd_image, :fill, 200, 200, format: 'jpeg' %>
+            <%= attachment_image_tag(product, :cd_image, :fill, 200, 200) %>
           </div>
         <tr class="index_tr" >
           <th class="th_tr">アーティスト&emsp;</th>
@@ -32,17 +38,17 @@
 
         <tr class="index_tr">
           <th class="th_tr">アルバム・シングル名&emsp;</th>
-           <td><%= product.cd_name .truncate(12) %></td>
+          <td><%= product.cd_name .truncate(12) %></td>
         </tr>
 
         <tr class="index_tr">
           <th class="th_tr">ジャンル&emsp;</th>
-           <td><%= product.category .truncate(12) %></td>
+          <td><%= product.category .truncate(12) %></td>
         </tr>
 
         <tr class="index_tr">
           <th class="th_tr">価格&emsp;</th>
-           <td>¥ <%= product.price %></td>
+          <td>¥ <%= product.price %></td>
         </tr>
       </table>
 
@@ -51,7 +57,8 @@
         </div>
 <hr>
     </div>
-<% end %>
+  </div>
+ <% end %>
 </div>
 
 
