@@ -1,68 +1,55 @@
+<div class="sticky">
+  <h1 class="pro_header">商品一覧</h1>
 
-  <h1 class="pro_header" >商品一覧</h1>
-<ul class="center-block" >
-  <%= search_form_for @q do |f| %>
-    <table>
-      <tr>
-        <th><%= f.label :artist_name, "アーティスト名から検索" %>&emsp;</th>
-        <td>
-           <p><%= f.search_field :artist_name_or_artist_name_kana_or_artist_name_eng_cont %></p></td>
-      </tr><br />
+  <ul class="center-block" >
+    <%= search_form_for @q do |f| %>
+      <table>
+        <%= f.label :product_show_area, "キーワードから検索" %>
+         <tr>
+           <th><p><%= f.search_field :artist_name_or_artist_name_kana_or_artist_name_eng_or_cd_name_or_category_or_label_name_or_label_name_kana_or_label_name_eng_cont %></p></th>
+           <th><input id="submit_button" type="submit" class="btn btn-primary" name="submit" value="検　索"></th>
+         </tr>
+      </table>
+    <% end %>
+  </ul>
+<hr>
 
-      <tr>
-        <th><%= f.label :cd_name, "アルバム・シングル名から検索" %>&emsp;&emsp;</th>
-        <td><p><%= f.search_field :cd_name_start %></p></td>
-      </tr><br />
 
-      <tr>
-        <th><%= f.label :category, "ジャンルから検索" %></th>
-        <td><p><%= f.search_field :category_start %></p></td>
-      </tr><br />
-    </table>
-        <input id="submit_button" type="submit" class="btn btn-primary" name="submit" value="検　索">
-<% end %>
-</ul>
-
-<br>
-
-<div>
-  <div cladss="row">
+<div cladss="row">
 
  <% @products.each do |product| %>
 
     <div class="col-lg-3" style="padding-top: 10px;">
-      <table class="ichiran" style="
-        border: 1px solid #0f0f0f;
-        width: 97%; margin: 0px 15px 20px; padding: 5px 5px 0px;" >
+      <table class="ichiran">
           <div class="cd_image_index" >
-            <%= attachment_image_tag product, :cd_image, :fill, 150, 150, format: 'jpeg' %>
+            <%= attachment_image_tag product, :cd_image, :fill, 200, 200, format: 'jpeg' %>
           </div>
         <tr class="index_tr" >
           <th class="th_tr">アーティスト&emsp;</th>
-          <td class="th_tr"><span><%= product.artist_name .truncate(12) %></span></td>
+          <td><%= product.artist_name .truncate(12) %></td>
             <% product.artist_name_eng .truncate(12) %>
         </tr>
 
         <tr class="index_tr">
           <th class="th_tr">アルバム・シングル名&emsp;</th>
-          <td class="th_tr"><span><%= product.cd_name .truncate(12) %></span></td>
+           <td><%= product.cd_name .truncate(12) %></td>
         </tr>
 
         <tr class="index_tr">
           <th class="th_tr">ジャンル&emsp;</th>
-          <td class="th_tr"><span><%= product.category .truncate(12) %></span></td>
+           <td><%= product.category .truncate(12) %></td>
         </tr>
 
         <tr class="index_tr">
           <th class="th_tr">価格&emsp;</th>
-          <td class="th_tr">¥ <span><%= product.price %></span></td>
+           <td>¥ <%= product.price %></td>
         </tr>
       </table>
 
         <div class="index_show">
           <span><%=link_to "詳　細", product_path(product.id), class: 'btn btn-outline-primary bg-warning' %></span>
         </div>
-
+<hr>
     </div>
 <% end %>
 </div>
