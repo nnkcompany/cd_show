@@ -1,21 +1,27 @@
-<p>カートに入れる</p>
+<div class="container">
+	<div class="col-md-12">
+　   <h1 style="display:inline;">カート情報</h1>
+    <hr>
+	</div>
 
-<% sum = 0%>
- <% current_user.cart.product_carts.each do |product_cart| %>
-<%= product_cart.product.cd_name %>
-<%= product_cart.product.artist_name %>
-<p>¥<%= product_cart.product.price %></p>
-
-
-
-<%# sum = 0%>
-<!-- sumがここだとsum=0すらもeachされるので合計にならない -->s
-<% sum += product_cart.product.price %>
-<% end %>
-
-合計金額<%= sum %>
-
-<div class="col-xs-12">
-<%=link_to "買い物を続ける", products_path, class: "btn btn-default col-xs-3 col-xs-offset-2" %>
-<%=link_to "レジに進む", new_order_path, class: "btn btn-success col-xs-3 col-xs-offset-2" %>
+		<h3 class="my-3">カート中身</h3>
+		<% sum = 0%>
+		<% current_user.cart.product_carts.each do |product_cart| %>
+		<ul>
+			<li class="text-left"><%= attachment_image_tag product_cart.product, :cd_image, :fill, 250, 250 %></li>
+			<li class="text-left">CD名：<%= product_cart.product.cd_name %></li>
+			<li class="text-left">アーティスト名：<%= product_cart.product.artist_name %></li>
+			<li class="text-left">値段：<%= product_cart.product.price %>円</li>
+			<% sum += product_cart.product.price %>
+			<%=link_to "詳細", product_path(product_cart.product.id) ,class: "btn btn-default" %>
+			<%= link_to "削除", product_product_carts_path(product_cart.product_id, product_cart.id), method: :delete, data: { confirm: '本当に消しますか?'} ,class: "btn btn-danger" %>
+			</ul>
+		<% end %>
+		<span>合計金額<%= sum %>円</span>
+	<div class="col-xs-12">
+	<%=link_to "買い物を続ける", products_path, class: "btn btn-default col-xs-3 col-xs-offset-2" %>
+	<%=link_to "レジに進む", new_order_path, class: "btn btn-success col-xs-3 col-xs-offset-2" %>
+	</div>
 </div>
+
+

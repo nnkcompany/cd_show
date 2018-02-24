@@ -10,7 +10,8 @@ cd名：<%= product_cart.product.cd_name %>
 <% sum += product_cart.product.price %>
 <% end %>
 
-合計金額<%= sum %>
+<p>送料：1000円</p>
+合計金額<%= sum %>円
 
 
 <%= form_for @order do |f| %>
