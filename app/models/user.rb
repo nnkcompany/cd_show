@@ -12,7 +12,7 @@ class User < ApplicationRecord
    !deleted_at
   end
 
-  has_many :products
+
   has_many :addresses
   has_many :orders
   has_one :cart

@@ -16,7 +16,8 @@ layout 'admin.application'
 
 	def create
 		@product = Product.new(product_params)
-		@product.user_id = current_user.id
+		@product.admin_id = current_admin.id
+		# @product.cd_image_id = params[:product][:cd_image]
 		# binding.pry
 		@product.save
 		redirect_to admins_products_path
@@ -61,7 +62,7 @@ layout 'admin.application'
 			:discs_attributes => [:id,
 								  :disc_name,
 								  :product_id,
-								  :disc_nunber,
+								  :disc_number,
 			 					  :_destroy,
 			 					  :songs_attributes => [:id,
 			 					  						:song_title,
