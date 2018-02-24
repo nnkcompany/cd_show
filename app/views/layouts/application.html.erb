@@ -26,13 +26,13 @@
           <ul class="nav navbar-nav navbar-right" style=" width: 125%;">
             <li class="">
             <p class="head_word"><%= current_user.last_name %><%= current_user.first_name %>&emsp;</p>
-            </li>
       			</li>
+            
             <li class="">
             <span class="font"><%= link_to "マイページ", user_path(current_user.id) %>&emsp;</span>
             </li>
             <li class="">
-            <span class="font"><%= link_to "カート" %>&emsp;</span>
+            <span class="font"><%=link_to "カート", cart_path(current_user.cart.id) ,class: "text-center"%>&emsp;</span>
             </li>
             <li class="">
             <span class="font"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>&emsp;</span>

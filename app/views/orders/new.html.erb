@@ -1,0 +1,27 @@
+<p>購入確認</p>
+
+<% sum = 1000 %>
+<% current_user.cart.product_carts.each do |product_cart| %>
+cd名：<%= product_cart.product.cd_name %>
+アーティスネーム：<%= product_cart.product.artist_name %>
+<p>¥<%= product_cart.product.price %></p>
+
+
+<% sum += product_cart.product.price %>
+<% end %>
+
+合計金額<%= sum %>
+
+
+<%= form_for @order do |f| %>
+<%= f.text_field :last_name_kana, :value => current_user.last_name_kana %>
+<%= f.text_field :first_name_kana, :value => current_user.first_name_kana %>
+
+
+<%= f.text_field :last_name, :value => current_user.last_name %>
+<%= f.text_field :first_name, :value => current_user.first_name %>
+
+
+
+<%= f.submit "購入", class: "btn-sm btn btn-success" %>
+<% end %>
