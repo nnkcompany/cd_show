@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <%= form_for @products, url: admins_product_path , html: {method: "PATCH"} do |f| %>
+        <div class="col-md-12">
+            <h1>編集画面</h1>
+                <div class="col-md-8 text-center">
+                    <%= attachment_image_tag @products, :cd_image, :fill, 500, 500 %>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="field row">画像変更:<%= f.attachment_field :cd_image %></div>
+                    <div class="field row">シングル/アルバム名:<%=f.text_field :cd_name ,:placeholder => "シングル/アルバム名" %>
+                    </div>
+                    <div class="field row">アーティスト名:<%=f.text_field :artist_name ,:placeholder => "アーティスト名"  %><%=f.text_field :artist_name_kana ,:placeholder => "アーティスト名カナ"  %><%=f.text_field :artist_name_eng ,:placeholder => "アーティスト名英語"  %>
+                    </div>
+                    <div class="field row">ジャンル:<%=f.text_field :category,:placeholder => "ジャンル"  %>
+                    </div>
+                    <div class="field row">レーベル:<%=f.text_field :label_name,:placeholder => "レーベル"  %><%=f.text_field :label_name_kana,:placeholder => "レーベルカナ"  %><%=f.text_field :label_name_eng,:placeholder => "レーベル英語"  %>
+                    </div>
+                    <div class="field row">在庫数:<%=f.text_field :quantity,:placeholder => "在庫数"  %>
+                    </div>
+                    <div class="field row">値段:<%=f.text_field :price,:placeholder => "値段"  %>
+                    </div>
+
+                    <%= f.fields_for :discs do |discs_form| %>
+                        <div class="field row">
+                            <label>ディスク</label>
+                            <%= render 'disc_fields', f: discs_form %>
+                            <div class="links">
+                                <%= link_to_add_association 'add disc', f, :discs %>
+                            </div>
+                        </div>
+
+                        <div class="field row">
+                            <label>曲名</label>
+                            <%= discs_form.fields_for :songs do |songs_form| %>
+                                <%= render 'song_fields', f: songs_form %>
+                                <div class="links">
+                                    <%= link_to_add_association 'add song', discs_form, :songs %>
+                                </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+                    <%= f.submit '更新', data: {confirm: "更新しますか？"}, class: "btn btn-primary" %>
+                    <%=link_to "TOPに戻る", admins_products_path, class: "btn btn-success" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+

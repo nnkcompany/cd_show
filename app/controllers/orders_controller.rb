@@ -7,11 +7,11 @@ class OrdersController < ApplicationController
 	def create
 	  	@order = Order.new(order_params)
 		@order.user_id = current_user.id
+     # binding.pry
 		if @order.save
-			product_carts = current_user.cart.product_carts
-			product_carts.each do |product_cart|
+			 product_carts = current_user.cart.product_carts
+			 product_carts.each do |product_cart|
   			product_order = ProductOrder.new
-  			# binding.pry
   			product_order.product_id = product_cart.product_id
   			product_order.order_id = @order.id
   			product_order.save
