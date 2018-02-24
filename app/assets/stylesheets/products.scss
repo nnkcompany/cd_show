@@ -3,12 +3,18 @@
 
 /* index の css */
 
+
+.sticky{
+  	position: sticky;
+  	top: 50px;
+  	background-color: white;
+  	z-index: 2;
+}
+
 .pro_header{
 	text-align: center;
-	padding: 10px;
-    margin: 0px;
-    height: 56px;
-    background-image: url(http://caravan.web-camp.io/img/japan.jpg)
+	margin: 0px;
+	height: 56px;
 }
 
 
@@ -26,12 +32,44 @@
 
 .index_show{
 	text-align: center;
-	margin: -10px 35% 15px;
+	margin: -10px 42% 15px;
 }
 
 .col-lg-3{
 	font-size: 17px;
 }
+
+.ichiran{
+	border: 1px solid #0f0f0f;
+	width: 97%;
+	margin: 0px 15px 20px;
+	padding: 5px 5px 0px;
+	height: 95px;
+}
+
+.th_tr{
+	padding: 0;
+    text-align: left;
+    width: 50%;
+}
+
+.row{
+	width: 100%;
+}
+
+
+
+/* show の css */
+
+.is_cart{
+	font-size: 15px;
+	margin-bottom: 5px;
+}
+
+.show_table{
+	width: 140%;
+}
+
 
 
 

@@ -2,7 +2,7 @@
 <%= form_for(@product) do |f| %>
 
 	<h4>ジャケット画像</h4>
-	<%= attachment_image_tag @product, :cd_image, :fill, 100, 100, format: 'jpeg' %>
+	<%= attachment_image_tag @product, :cd_image, :fill, 100, 100 %>
 	<%= f.attachment_field :cd_image %>
 
     <h4>アーティスト名</h4>

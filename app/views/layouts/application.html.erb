@@ -8,37 +8,34 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
+
+    <header class="navbar navbar-fixed-top navbar-inverse" style="margin-bottom: 0px;">
+      <div class="container" style="width: 1300px;">
 
      <% if user_signed_in? %>
         <!--ログイン中-->
         <nav class="nav navbar-nav navbar-left">
           <ul class="nav navbar-nav navbar-left">
   					<li class="">
-            <span><%= link_to "nnk record 渋谷店", root_path %></span>
+            <span class="font"><%= link_to "nnk record 渋谷店", root_path %></span>
             </li>
           </ul>
         </nav>
 
         <nav class="nav navbar-nav navbar-right">
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" style=" width: 125%;">
             <li class="">
-            <p><%= current_user.last_name %><%= current_user.first_name %></p>
-            </li>
-          <li class="">
-            <%=link_to "カート", cart_path(current_user.cart.id) ,class: "text-center"%>
-          </li>
-            <li class="">
-  			<span><%= link_to "Logout", destroy_user_session_path, method: :delete %></span>
+            <p class="head_word"><%= current_user.last_name %><%= current_user.first_name %>&emsp;</p>
       			</li>
+            
             <li class="">
-            <span><%= link_to "Mypage", user_path(current_user.id) %></span>
+            <span class="font"><%= link_to "マイページ", user_path(current_user.id) %>&emsp;</span>
             </li>
             <li class="">
-            <span><%= link_to "Cart" %></span>
+            <span class="font"><%=link_to "カート", cart_path(current_user.cart.id) ,class: "text-center"%>&emsp;</span>
             </li>
+            <li class="">
+            <span class="font"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>&emsp;</span>
           </ul>
         </nav>
 
@@ -48,21 +45,21 @@
         <nav class="nav navbar-nav navbar-left">
           <ul class="nav navbar-nav navbar-left">
              <li class="">
-            <span><%= link_to "nnk record 渋谷店", root_path %></span>
+            <span class="font"><%= link_to "nnk record 渋谷店", root_path %></span>
             </li>
           </ul>
         </nav>
 
         <nav class="nav navbar-nav navbar-right">
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" style="width: 125%;">
            <li class="">
-            <span><%= link_to "Signup", new_user_registration_path %></span>
+            <span class="font"><%= link_to "新規会員登録", new_user_registration_path %>&emsp;</span>
             </li>
             <li class="">
-            <span><%= link_to "Login", new_user_session_path %></span>
+            <span class="font"><%= link_to "ログイン", new_user_session_path %>&emsp;</span>
             </li>
             <li class="">
-            <span><%= link_to "nnk", root_path %></span>
+            <span class="font"><%= link_to "TOPへ", root_path %></span>
             </li>
           </ul>
       </nav>
@@ -72,7 +69,20 @@
     </header>
 
 
-<p id="notice"></p>
+  <p id="notice"></p>
     <%= yield %>
   </body>
+<hr>
+
+  <footer>
+    <div class="sticky_f">
+    <p>
+      <a>利用規約</a> |
+      <a>プライバシーポリシー</a> |
+      <a>サイトマップ</a>
+    </p>
+    <p style="color: white;"><small>Copyrighht © 2017 ABCD Co.,Ltd. All Rights Reserved.</small></p>
+  </div>
+  </footer>
+
 </html>
