@@ -1,15 +1,9 @@
-// Place all the styles related to the discs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
 
 .disc_ds{
-	/* border: 1px solid #0f0f0f; */
-}
 
-
-
-.disc_d{
-	height: 35px;
+	padding-left: 7px;
+    padding-bottom: 6px;
 }
 
 .disc_n{
@@ -17,5 +11,23 @@
 }
 
 
+button:hover{
+	background: #ffff88;
+}
+
+.is_cart{
+	border-radius: 6px;
+    background-color: antiquewhite;
+}
+
+.is_edit{
+	border-radius: 6px;
+    background-color: lightcyan;
+}
+
+.is_del{
+	border-radius: 6px;
+    background-color: crimson;
+}
 
 
