@@ -27,6 +27,9 @@
             <li class="">
             <p><%= current_user.last_name %><%= current_user.first_name %></p>
             </li>
+          <li class="">
+            <%=link_to "カート", cart_path(current_user.cart.id) ,class: "text-center"%>
+          </li>
             <li class="">
   			<span><%= link_to "Logout", destroy_user_session_path, method: :delete %></span>
       			</li>

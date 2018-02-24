@@ -3,30 +3,30 @@
 
 /* index の css */
 
-.ichiran{
-	border: 1px solid #0f0f0f;
-    width: 22%;
-    margin: 0px 15px 20px;
-    padding: 5px 5px 0px;
+.pro_header{
+	text-align: center;
+	padding: 10px;
+    margin: 0px;
+    height: 56px;
+    background-image: url(http://caravan.web-camp.io/img/japan.jpg)
 }
 
+
 .cd_image_index{
-	margin-left: 8%;
 	margin-bottom: 5px;
+	text-align: center;
 }
 
 
 .index_tr{
 	font-size: 13px;
+	text-align: left;
 }
 
 
 .index_show{
-	border: 1px solid darkblue;
 	text-align: center;
-	width: 15%;
-	margin: -10px 4% 15px;
-	background-color: blanchedalmond;
+	margin: -10px 35% 15px;
 }
 
 .col-lg-3{
@@ -35,4 +35,14 @@
 
 
 
+.th_tr{
+	padding: 0;
+    text-align: left;
+    width: 50%;
+}
+
+.is_cart{
+	font-size: 15px;
+	margin-bottom: 5px;
+}
 
