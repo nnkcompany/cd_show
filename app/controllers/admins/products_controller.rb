@@ -17,7 +17,6 @@ layout 'admin.application'
 	def create
 		@product = Product.new(product_params)
 		@product.admin_id = current_admin.id
-		# @product.cd_image_id = params[:product][:cd_image]
 		# binding.pry
 		@product.save
 		redirect_to admins_products_path
@@ -27,21 +26,19 @@ layout 'admin.application'
 		@product = Product.new
 		@disc = @product.discs.build
 		@disc.songs.build
-
-		# 2.times { @product.discs.build }
 	end
 
 	def update
 		@product = Product.find(params[:id])
 		@product.update(product_params)
-		redirect_to product_path(@product.id)
+		redirect_to admins_products_path
 	end
 
 
 	def destroy
 		@product = Product.find(params[:id])
 		@product.destroy
-		redirect_to products_path
+		redirect_to admins_products_path
 	end
 
 
