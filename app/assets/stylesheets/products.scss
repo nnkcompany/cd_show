@@ -4,30 +4,22 @@
 /* index の css */
 
 
-
 .sticky{
   	position: sticky;
   	top: 50px;
-  	background-image: url(https://image.freepik.com/free-vector/no-translate-detected_23-2147492123.jpg);
-  	z-index: 100;
+  	background-color: white;
+  	z-index: 2;
 }
 
 .pro_header{
 	text-align: center;
 	margin: 0px;
-	padding-top: 10px;
-	height: 60px;
-    font-family: Impact, sans-serif;
-    font-weight: bold;
-    font-style: italic;
-    letter-spacing: 0.5em;
+	height: 56px;
 }
-
 
 
 .cd_image_index{
 	margin-bottom: 5px;
-	margin-left: 8%;
 	text-align: center;
 }
 
@@ -53,10 +45,17 @@
 	margin: 0px 15px 20px;
 	padding: 5px 5px 0px;
 	height: 95px;
-	background-color: white;
 }
 
+.th_tr{
+	padding: 0;
+    text-align: left;
+    width: 50%;
+}
 
+.row{
+	width: 100%;
+}
 
 
 
@@ -67,57 +66,21 @@
 	margin-bottom: 5px;
 }
 
-.product_ad_sow{
-	padding-top: 20px;
-	margin: 0px auto;
-    width: 85%;
-}
-
 .show_table{
-	width: 100%;
-
-}
-
-
-.show_title{
-	width: 215px;
-}
-
-.show_cont{
-	width: 252px;
-	overflow-x: scroll;
-	white-space: nowrap;
-}
-
- .th_tr{
- 	padding: 0;
-     text-align: left;
-     width: 50%;
- }
-
- .row{
- 	width: 100%;
- }
-
-.row_body{
-	background-image: linear-gradient(rgba(0,0,0,-1.5), rgba(0,0,0,-1.5)), url(https://image.freepik.com/free-vector/no-translate-detected_1394-165.jpg);
-	background-size: cover;
-	background-position: top center;
-}
-
-.image_show{
-	padding-top: 15px;
-}
-
-.disc_s{
-	overflow-x: scroll;
-	white-space: nowrap;
+	width: 140%;
 }
 
 
 
 
+.th_tr{
+	padding: 0;
+    text-align: left;
+    width: 50%;
+}
 
-
-
+.is_cart{
+	font-size: 15px;
+	margin-bottom: 5px;
+}
 
