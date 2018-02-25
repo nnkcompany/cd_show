@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 
 	def create
 	  	@order = Order.new(order_params)
-		@order.user_id = current_user.id
+		  @order.user_id = current_user.id
      # binding.pry
 		if @order.save
 			 product_carts = current_user.cart.product_carts
