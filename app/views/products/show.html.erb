@@ -2,80 +2,107 @@
 
 <div class="show_body">
   <div class="col-lg-3">
-    <%= attachment_image_tag @product, :cd_image, :fill, 250, 250 %>
-  </div>
-      <div cladss="row">
-        <div class="col-lg-6">
-          <table class="show_table">
-            <tr>
-              <th><h4>アルバム・シングル名：</h4></th>
-              <td><%= @product.cd_name %></td>
-            </tr>
+    <div class="image_show">
+    <%= attachment_image_tag @product, :cd_image, :fill, 300, 300 %>
+    </div>
 
-            <tr>
-              <th><h4>アーティスト：</h4></th>
-              <td><%= @product.artist_name %>&emsp;&emsp;</td>
-              <td><%= @product.artist_name_kana %>&emsp;&emsp; </td>
-              <td style="width: 22%;"><%= @product.artist_name_eng %></td>
-            </tr>
-
-            <tr>
-              <th><h4>レーベル：</h4></th>
-              <td><%= @product.label_name %>&emsp;&emsp;</td>
-              <td><%= @product.label_name_kana %>&emsp;&emsp;</td>
-              <td><%= @product.label_name_eng %></td>
-            </tr>
-
-            <tr>
-              <th><h4>ジャンル：</h4></th>
-              <td><%= @product.category %></td>
-            </tr>
-
-            <tr>
-              <th><h4>在庫数：</h4></th>
-              <td><%= @product.quantity %></td>
-            </tr>
-
-            <tr>
-              <th><h4>価格：</h4></th>
-              <td>￥&emsp;<%= @product.price %></td>
-            </tr>
-
-          </table>
-        </div>
-        <% if user_signed_in? %>
-        <div class="col-lg-6">
-          <button type="button" style="font-size: 15px; margin-bottom: 5px;" ><%=link_to "カートに入れる", product_product_carts_path(@product.id), method: :post %></button><br>
-        </div>
-        <% end %>
-      </div>
-
-        <div class="col-lg-6">
-          <% @discs.discs.each do |disc| %>
-            <div class="disc_ds">
-              <h4 class="disc_n" ><%= disc.disc_number %></h4>
-              <h4 class="disc_n"><%= disc.disc_name %></h4><br>
-              <div class="disc_s">
-                  <% disc.songs.each do |song| %>
-                      <%= song.song_number %>&emsp;
-                      <%= song.song_title %><br>
-                  <% end %>
-              </div>
-            </div>
-        </div>
+    <% if admin_signed_in? %>
+      <div class="product_ad_sow">
+        <table>
+          <tr>
+            <th><button type="button" class="btn btn-success" style="font-size: 15px; margin: 0 20px 5px 0;  padding: 6px 12px; font-weight: lighter;" ><%=link_to "編集画面へ", edit_admins_product_path(@product.id) %></button><br>
+            </th>
+            <td><button type="button" class="btn btn-danger" style="font-color: 15px; margin-bottom: 5px;"><%=link_to "商品を削除する", destroy_product_path(@product.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></button><br>
+            </td>
+        </tr>
+        </table>
       </div>
     <% end %>
   </div>
+
+  <div cladss="row">
+    <div class="col-lg-9">
+      <table class="show_table" style="overflow-y:scroll;">
+        <tr>
+          <th class="show_title"><h4>アルバム・シングル名：</h4></th>
+          <td><%= @product.cd_name %></td>
+        </tr>
+
+        <tr>
+          <th><h4>アーティスト：</h4></th>
+          <td>
+            <div class="show_cont"><%= @product.artist_name %>&emsp;&emsp;</div>
+          </td>
+          <td>
+            <div class="show_cont"><%= @product.artist_name_kana %>&emsp;&emsp;</div>
+            </td>
+          <td>
+            <div class="show_cont"><%= @product.artist_name_eng %></div>
+            </td>
+        </tr>
+
+        <tr>
+          <th><h4>レーベル：</h4></th>
+          <td>
+            <div class="show_cont"><%= @product.label_name %>&emsp;&emsp;</div>
+            </td>
+          <td>
+            <div class="show_cont"><%= @product.label_name_kana %>&emsp;&emsp;</div>
+            </td>
+          <td>
+            <div class="show_cont"><%= @product.label_name_eng %></div>
+            </td>
+        </tr>
+
+        <tr>
+          <th><h4>ジャンル：</h4></th>
+          <td><%= @product.category %></td>
+        </tr>
+
+        <tr>
+          <th><h4>在庫数：</h4></th>
+          <td><%= @product.quantity %></td>
+        </tr>
+
+        <tr>
+          <th><h4>価格：</h4></th>
+          <td>￥&emsp;<%= @product.price %></td>
+        </tr>
+
+      </table>
+    </div>
+      <% if user_signed_in? %>
+    <div class="col-lg-3" style="width: 210px;">
+      <button type="button" class="btn btn-warning" style="font-size: 15px; margin-bottom: 5px;     margin-top: 17px;" ><%=link_to "カートに入れる", product_product_carts_path(@product.id), method: :post %></button><br>
+    </div>
+      <% end %>
+  </div>
 </div>
-
-
-  <% if admin_signed_in? %>
-  <button type="button" style="font-size: 15px; margin-bottom: 5px;" ><%=link_to "編集画面へ", edit_product_path(@product.id) %></button><br>
-  <button type="button" style="font-size: 15px; margin-bottom: 5px;"><%=link_to "商品を削除する", destroy_product_path(@product.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></button><br>
+<table class="disc_ds">
+<div class="" style="width: 55%;">
+  <% @discs.discs.each do |disc| %>
+    <tr>
+      <th><h4 class="disc_n" ><%= disc.disc_number %></h4></th>
+      <td><h4 class="disc_n"><%= disc.disc_name %></h4><br></td>
+    </tr>
+      <div class="disc_s">
+        <% disc.songs.each do |song| %>
+          <tr>
+            <th>
+              <%= song.song_number %>&emsp;
+              </th>
+            <td>
+              <div class="disc_s"><%= song.song_title %></div><br>
+            </td>
+          </tr>
+        <% end %>
+      </div>
   <% end %>
+</div>
+</table>
 
-  <br>
-  <br>
 </body>
+
+
 
 

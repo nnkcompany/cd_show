@@ -1,0 +1,41 @@
+<div class="container">
+    <%= form_for @products,url: edit_admins_product_path(@products) do |f| %>
+        <div class="row product_show">
+            <div class="col-md-3 text-center">
+                <%= f.attachment_field :cd_image %>
+                <div class="text-left">在庫数:<%=f.text_field :quantity %></div>
+                <div class="text-left">金額:<%=f.text_field :price %></div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="field row">シングル/アルバム名:<%=f.text_field :cd_name ,:placeholder => "シングル/アルバム名" %></div>
+                <div class="field row">アーティスト名:<%=f.text_field :artist_name ,:placeholder => "アーティスト名"  %><%=f.text_field :artist_name_kana ,:placeholder => "アーティスト名カナ"  %><%=f.text_field :artist_name_eng ,:placeholder => "アーティスト名英語"  %></div>
+                <div class="field row">ジャンル:<%=f.text_field :category,:placeholder => "ジャンル"  %></div>
+                <div class="field row">レーベル:<%=f.text_field :label_name,:placeholder => "レーベル"  %><%=f.text_field :label_name_kana,:placeholder => "レーベルカナ"  %><%=f.text_field :label_name_eng,:placeholder => "レーベル英語"  %></div>
+
+                <%= f.fields_for :discs do |discs_form| %>
+                    <div class="field row">
+                        <label>ディスク</label>
+                        <%= render 'disc_fields', f: discs_form %>
+                        <div class="links">
+                            <%= link_to_add_association 'add disc', f, :discs %>
+                        </div>
+                    </div>
+
+                    <div class="field row">
+                        <label>曲名</label>
+                        <%= discs_form.fields_for :songs do |songs_form| %>
+                            <%= render 'song_fields', f: songs_form %>
+                            <div class="links">
+                                <%= link_to_add_association 'add song', discs_form, :songs %>
+                            </div>
+                        <% end %>
+                    </div>
+                <% end %>
+                <%= f.submit '更新', data: {confirm: "更新しますか？"} %><br>
+                <%= link_to "管理者TOPへ戻る", admins_products_path,data: {confirm: "更新せずにTOP画面へ戻ります"}, class: "btn btn-success" %>
+            </div>
+        </div>
+    <% end %>
+</div>
+

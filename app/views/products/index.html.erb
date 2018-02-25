@@ -1,26 +1,25 @@
+
 <div class="sticky">
   <div cladss="row">
-    <h1 class="pro_header" >商品一覧</h1>
+    <h1 class="pro_header" >CD LIST</h1>
 
-
-    <ul class="center-block" >
      <%= search_form_for @q do |f| %>
+      <div class="col-lg-4" style="background-color: white; height: 53px;"></div>
+      <div class="col-lg-6" style="background-color: white; margin-top: 4px;">
 
-      <table>
-          <%= f.label :product_show_area, "キーワードから検索" %>
-          <tr>
-            <th><p><%= f.search_field :artist_name_or_artist_name_kana_or_artist_name_eng_or_cd_name_or_category_or_label_name_or_label_name_kana_or_label_name_eng_cont %></p></th>
-            <th><input id="submit_button" type="submit" class="btn btn-primary" name="submit" value="検　索"></th>
-          </tr>
+        <p>
+          <label><%= f.search_field :artist_name_or_artist_name_kana_or_artist_name_eng_or_cd_name_or_category_or_label_name_or_label_name_kana_or_label_name_eng_cont,size:45  %>
+          <input id="submit_button" type="submit" class="btn btn-primary" name="submit" value="検　索"></label>
+        </p>
+      </div>
+      <div class="col-lg-2" style="background-color: white; height: 53px;"></div>
 
-      </table>
     <% end %>
-    </ul>
   </div>
-<hr>
 </div>
+<hr>
 
-
+<div class="row_body">
 <div class="row">
  <% @products.each do |product| %>
 
@@ -53,14 +52,14 @@
       </table>
 
         <div class="index_show">
-          <span><%=link_to "詳　細", product_path(product.id), class: 'btn btn-outline-primary bg-warning' %></span>
+          <span><%=link_to "詳　細", product_path(product.id), class: 'btn btn-danger' %></span>
         </div>
 <hr>
     </div>
   </div>
  <% end %>
 </div>
-
+</div>
 
 
 <div cladss="center-block">
