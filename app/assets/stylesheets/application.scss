@@ -19,7 +19,7 @@
 
 
     #notice {
-    	padding-top: 50px
+    	padding-top: 40px
 	}
 
 .head_word{
@@ -33,7 +33,7 @@
 }
 
 .sticky_f{
-  	position: fixed;
+    position: fixed;
     z-index: auto;
     background-color: black;
     text-align: center;
@@ -41,6 +41,20 @@
     width: 100%;
 }
 
-ul {
-  list-style:none;
+
+.sticky_a{
+    position: fixed;
+    z-index: auto;
+    background-color: black;
+    text-align: center;
+    bottom: 0px;
+    height: 28px;
+    width: 100%;
+    padding-top: 4px;
 }
+
+a{
+color: gray;
+}
+
+
