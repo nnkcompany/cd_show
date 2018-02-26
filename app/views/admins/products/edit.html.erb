@@ -7,7 +7,7 @@
                     <%= attachment_image_tag @products, :cd_image, :fill, 500, 500 %>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4" style="bottom: 32px;">
                     <div class="field row">画像変更:<%= f.attachment_field :cd_image %></div>
                     <div class="field row">シングル/アルバム名:<%=f.text_field :cd_name ,:placeholder => "シングル/アルバム名" %>
                     </div>

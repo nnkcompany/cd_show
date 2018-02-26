@@ -16,7 +16,7 @@
         <!--ログイン中-->
         <nav class="nav navbar-nav navbar-left">
           <ul class="nav navbar-nav navbar-left">
-  					<li class="">
+  					<li class="" style="padding-top: 12px;">
             <span class="font"><%= link_to "nnk record 渋谷店", root_path %></span>
             </li>
           </ul>
@@ -28,13 +28,13 @@
             <p class="head_word"><%= current_user.last_name %><%= current_user.first_name %>&emsp;</p>
       			</li>
             
-            <li class="">
+            <li class="" style="padding-top: 12px;">
             <span class="font"><%= link_to "マイページ", user_path(current_user.id) %>&emsp;</span>
             </li>
-            <li class="">
+            <li class="" style="padding-top: 12px;">
             <span class="font"><%=link_to "カート", cart_path(current_user.cart.id) ,class: "text-center"%>&emsp;</span>
             </li>
-            <li class="">
+            <li class="" style="padding-top: 12px;">
             <span class="font"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>&emsp;</span>
           </ul>
         </nav>
@@ -44,7 +44,7 @@
  <!--ログアウト中-->
         <nav class="nav navbar-nav navbar-left">
           <ul class="nav navbar-nav navbar-left">
-             <li class="">
+             <li class="" style="padding-top: 12px;">
             <span class="font"><%= link_to "nnk record 渋谷店", root_path %></span>
             </li>
           </ul>
@@ -52,13 +52,13 @@
 
         <nav class="nav navbar-nav navbar-right">
           <ul class="nav navbar-nav navbar-right" style="width: 125%;">
-           <li class="">
+           <li class="" style="padding-top: 12px;">
             <span class="font"><%= link_to "新規会員登録", new_user_registration_path %>&emsp;</span>
             </li>
-            <li class="">
+            <li class="" style="padding-top: 12px;">
             <span class="font"><%= link_to "ログイン", new_user_session_path %>&emsp;</span>
             </li>
-            <li class="">
+            <li class="" style="padding-top: 12px;">
             <span class="font"><%= link_to "TOPへ", root_path %></span>
             </li>
           </ul>
@@ -77,10 +77,11 @@
   <footer>
     <div class="sticky_f">
     <p>
-      <a>利用規約</a> |
-      <a>プライバシーポリシー</a> |
+      <a>利用規約</a>
+      <a>|</a>
+      <a>プライバシーポリシー</a>
+      <a>|</a>
       <a>サイトマップ</a>
-      <%= link_to "管理者ログイン", admins_homes_path %>
     </p>
     <p style="color: white;"><small>Copyrighht © 2017 ABCD Co.,Ltd. All Rights Reserved.</small></p>
   </div>
