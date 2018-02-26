@@ -1,24 +1,24 @@
 <div class="sticky">
-  <h1 class="pro_header" >商品一覧</h1>
+  <div cladss="row">
+    <h1 class="pro_header" >CD LIST</h1>
 
+     <%= search_form_for @q do |f| %>
+      <div class="col-lg-4" style="background-color: white; height: 53px;"></div>
+      <div class="col-lg-6" style="background-color: white; margin-top: 4px;">
 
-  <ul class="center-block" >
-   <%= search_form_for @q do |f| %>
+        <p>
+          <label><%= f.search_field :artist_name_or_artist_name_kana_or_artist_name_eng_or_cd_name_or_category_or_label_name_or_label_name_kana_or_label_name_eng_cont,size:45  %>
+          <input id="submit_button" type="submit" class="btn btn-primary" name="submit" value="検　索"></label>
+        </p>
+      </div>
+      <div class="col-lg-2" style="background-color: white; height: 53px;"></div>
 
-    <table>
-        <%= f.label :product_show_area, "キーワードから検索" %>
-        <tr>
-          <th><p><%= f.search_field :artist_name_or_artist_name_kana_or_artist_name_eng_or_cd_name_or_category_or_label_name_or_label_name_kana_or_label_name_eng_cont %></p></th>
-          <th><input id="submit_button" type="submit" class="btn btn-primary" name="submit" value="検　索"></th>
-        </tr>
-
-    </table>
-  <% end %>
-  </ul>
-<hr>
+    <% end %>
+  </div>
 </div>
+<hr>
 
-
+<div class="row_body">
 <div class="row">
  <% @products.each do |product| %>
 
@@ -26,9 +26,7 @@
     <div class="col-lg-3" style="padding-top: 10px;">
       <table class="ichiran">
           <div class="cd_image_index" >
-
-            <%= attachment_image_tag(product, :cd_image, :fill, 150, 150) %>
-
+            <%= attachment_image_tag(product, :cd_image, :fill, 200, 200) %>
           </div>
         <tr class="index_tr" >
           <th class="th_tr">アーティスト&emsp;</th>
@@ -53,14 +51,14 @@
       </table>
 
         <div class="index_show">
-          <span><%=link_to "詳　細", product_path(product.id), class: 'btn btn-outline-primary bg-warning' %></span>
+          <span><%=link_to "詳　細", product_path(product.id), class: 'btn btn-danger' %></span>
         </div>
 <hr>
     </div>
   </div>
  <% end %>
 </div>
-
+</div>
 
 
 <div cladss="center-block">
