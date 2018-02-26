@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
   			product_cart.destroy
   		end
   	end
+    # binding.pry
   	redirect_to root_path
   end
 
