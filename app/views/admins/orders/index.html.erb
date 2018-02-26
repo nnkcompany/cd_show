@@ -1,24 +1,24 @@
 <div class="container">
 	<div class="col-xs-12">
-		<h1 class="my-4">オーダー情報</h1>
+		<h1 class="my-4">注文情報</h1>
 		<div class="row">
 			<table class="table table-hover">
 				<tbody>
 					<tr>
-						<td>オーダーID</td>
-						<td>オーダー日</td>
-						<td>ユーザー名</td>
+						<td>商品ID</td>
+						<td>購入者</td>
 						<td>配送状況</td>
+						<td>購入日時</td>
 						<td>詳細</td>
 						<td>編集</td>
 						<td>削除</td>
 					</tr>
-					<% @order.each do |order| %>
+						<% @orders.each do |order| %>
 						<tr>
 							<td><%= order.id %></td>
-							<td><%= order.created_at.strftime("%m#{"月"}%d#{"日"}%R")  %></td>
-							<td><%= order.last_name %><%= order.first_name %></td>
+							<td><%= order.user.last_name %><%= order.user.first_name %></td>
 							<td><%= order.status %></td>
+							<td><%= order.created_at.strftime("%m#{"月"}%d#{"日"}%R") %></td>
 							<td><%= link_to "詳細", admins_order_path(order.id), class: "btn btn-success" %></td>
 							<td><%= link_to "編集", edit_admins_order_path(order.id), class: "btn btn-success" %></td>
 							<td><%= link_to "削除", admins_order_path(order.id), method: :delete, class: "btn btn-danger", data: { confirm: '本当に消しますか?'} %></td>

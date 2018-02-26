@@ -1,0 +1,34 @@
+
+<div class="container">
+	<div class="col-md-6">
+		<h1 class="my-4">管理者用/オーダー変更</h1>
+	</div>
+
+	<div class="col-md-6">
+		<%= form_for @orders , url: admins_order_path, html: {method: "PATCH"} do |f| %>
+		配送状況:<%= f.select :status, [["出荷準備中", "出荷準備中"], ["出荷配送完了", "出荷配送完了"], ["受取完了", "受取完了"]]  %>
+		<%= f.submit 'ステータス変更' ,class: "btn btn-primary" %>
+		<%=link_to "TOPに戻る", admins_orders_path, class: "btn btn-success" %>
+		<% end %>
+	</div>
+
+	<% @orders.product_orders.each do |product_order| %>
+		<div class="row product_show">
+			<div class="col-md-7 text-center product_show_image">
+				<%= attachment_image_tag product_order.product, :cd_image ,class: "col-md-12" %>
+			</div>
+
+			<div class="col-md-5">
+				<h3 class="my-3">商品情報</h3>
+				<ul>
+					<li class="text-left">商品名:<%= product_order.product.artist_name %></li>
+					<li class="text-left">値段:<%= product_order.product.price %></li>
+					<li class="text-left">レーベル名:<%= product_order.product.label_name %></li>
+					<li class="text-left">購入者:<%= @orders.user.last_name %><%= @orders.user.first_name %></li>
+					<li class="text-left">購入日時:<%= @orders.created_at.strftime("%m#{"月"}%d#{"日"}%R") %></li>
+				</ul>
+			</div>
+		</div>
+		<hr>
+	<% end %>
+</div>
