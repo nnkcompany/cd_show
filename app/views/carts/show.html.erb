@@ -1,4 +1,5 @@
 <div class="container">
+
 	<div class="col-md-12">
 　   <h1 style="display:inline;">カート情報</h1>
     <hr>
@@ -6,6 +7,7 @@
 
 		<h3 class="my-3">カート中身</h3>
 		<% sum = 0%>
+		
 		<% current_user.cart.product_carts.each do |product_cart| %>
 		<ul>
 			<li class="text-left"><%= attachment_image_tag product_cart.product, :cd_image, :fill, 250, 250 %></li>
