@@ -42,30 +42,38 @@
       <% @user.orders.each do |order| %>
         <h4>注文番号：<%= order.id %></h4>
           <% order.product_orders.each do |product_order| %>
-            <table class="table table-hover">
-              <tbody>
-                <tr>
-                  <td> <label>商品名</label>
-                    <%= product_order.product.cd_name %>
-                  </td>
-                  <td class="cart_td" colspan="2"> <label>配送状況:</label>
-                    	<%= order.status %>
-                  </td>
-                </tr>
-                <tr>
-                  <td rowspan="2">
-                    <%= attachment_image_tag product_order.product, :cd_image, :fill, 100, 100,  fallback: "default.jpg"%>
-                  </td>
-                  <td class="cart_td" colspan="2">  <label>商品購入日</label>
-                    <%= product_order.created_at.strftime("%Y-%m-%d") %>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="cart_td" colspan="2">  <label>値段</label>
-                    <%= product_order.product.price %>円</td>
-                </tr>
-              </tbody>
-            </table>
+ <table class="table table-hover">
+  <tbody>
+    <tr>
+      <td><label>商品名</label>
+                    <%= product_order.product.cd_name %></td>
+      <td><label>商品購入日</label>
+                    <%= product_order.created_at.strftime("%Y-%m-%d") %></td>
+    </tr>
+    <tr>
+      <td rowspan="4"><%= attachment_image_tag product_order.product, :cd_image, :fill, 100, 100,  fallback: "default.jpg"%></td>
+      <td><label>商品値段</label>
+                    <%= product_order.product.price %>円
+                    <% order_price = product_order.product.price %></td>
+    </tr>
+    <tr>
+      <td><label>購入個数</label>
+                  <%= product_order.quantity %>個
+                  <% order_quantity = product_order.quantity %></td>
+    </tr>
+    <tr>
+      <td><label>合計金額</label>
+                  <% order_quantity %>
+                  <% order_price %>
+                  <%= order_quantity*order_price %></td>
+    </tr>
+     <tr>
+      <td><label>ステータス</label>
+                  <%= order.status %>
+                </td>
+    </tr>
+  </tbody>
+</table>
         <% end %>
         <hr>
       <% end %>
@@ -74,6 +82,8 @@
   </div>
 </div>
 <hr>
+
+
 
 
 
