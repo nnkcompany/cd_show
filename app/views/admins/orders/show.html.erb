@@ -1,0 +1,48 @@
+
+
+<div class="container">
+	<div class="col-xs-12">
+		<h1 class="my-4">注文詳細</h1>
+		<div class="row">
+			<table class="table table-hover">
+				<tbody>
+					<tr>
+						<td>商品ID</td>
+						<td>購入者</td>
+						<td>商品名</td>
+						<td>レーベル名</td>
+						<td>値段</td>
+						<td>配送状況</td>
+						<td>購入日時</td>
+						<td></td>
+						<td></td>
+					</tr>
+						<% @order.product_orders.each do |product_order| %>
+						<tr>
+							<td><%= @order.id %></td>
+							<td><%= @order.user.last_name %><%= @order.user.first_name %></td>
+							<td><%= product_order.product.artist_name %></td>
+							<td><%= product_order.product.label_name %></td>
+							<td><%= product_order.product.price %>円</td>
+							<td><%= product_order.order.status %></td>
+							<td><%= @order.created_at.strftime("%m#{"月"}%d#{"日"}%R") %></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<% end %>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><%= link_to "戻る", admins_orders_path, class: "btn btn-default" %></td>
+							<td><%= link_to "ステータス変更", edit_admins_order_path(@order.id), class: "btn btn-success" %></td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

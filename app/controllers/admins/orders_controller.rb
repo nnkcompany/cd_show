@@ -3,15 +3,11 @@ before_action :authenticate_admin!
 layout 'admin.application'
 
 	def index
-		@order = Order.all
+		@orders = Order.all
 	end
 
 	def show
-		@orders = Order.find(params[:id])
-	end
-
-	def edit
-		@orders = Order.find(params[:id])
+		@order = Order.find(params[:id])
 	end
 
 	def create
@@ -23,10 +19,14 @@ layout 'admin.application'
 	end
 
 
+	def edit
+		@orders = Order.find(params[:id])
+	end
+
 	def update
-		@order = order.find(params[:id])
+		@order = Order.find(params[:id])
 		@order.update(order_params)
-		redirect_to order_path(@order.id)
+		redirect_to admins_orders_path
 	end
 
 

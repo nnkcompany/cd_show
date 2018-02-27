@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   			product_order = ProductOrder.new
   			product_order.product_id = product_cart.product_id
   			product_order.order_id = @order.id
+        product_order.quantity = product_cart.quantity
   			product_order.save
   			product_cart.destroy
   		end

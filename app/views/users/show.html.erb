@@ -36,16 +36,62 @@
 </table>
 
 
-
-<h1>購入履歴</h1>
-
+<span><%= link_to "ユーザー編集", edit_user_path %></span>
 
 
+<span><%= link_to "退会", user_path, :method => :delete %></span>
+
+
+  <div class="col-ms-12">
+      <h3>購入履歴</h3>
+      <hr>
+      <% @user.orders.each do |order| %>
+        <h4>注文番号：<%= order.id %></h4>
+          <% order.product_orders.each do |product_order| %>
+ <table class="table table-hover">
+  <tbody>
+    <tr>
+      <td><label>商品名</label>
+                    <%= product_order.product.cd_name %></td>
+      <td><label>商品購入日</label>
+                    <%= product_order.created_at.strftime("%Y-%m-%d") %></td>
+    </tr>
+    <tr>
+      <td rowspan="4"><%= attachment_image_tag product_order.product, :cd_image, :fill, 100, 100,  fallback: "default.jpg"%></td>
+      <td><label>商品値段</label>
+                    <%= product_order.product.price %>円
+                    <% order_price = product_order.product.price %></td>
+    </tr>
+    <tr>
+      <td><label>購入個数</label>
+                  <%= product_order.quantity %>個
+                  <% order_quantity = product_order.quantity %></td>
+    </tr>
+    <tr>
+      <td><label>合計金額</label>
+                  <% order_quantity %>
+                  <% order_price %>
+                  <%= order_quantity*order_price %></td>
+    </tr>
+     <tr>
+      <td><label>ステータス</label>
+                  <%= order.status %>
+                </td>
+    </tr>
+  </tbody>
+</table>
+        <% end %>
+        <hr>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</div>
+<hr>
 
 
 
 <span><%= link_to "ユーザー編集", edit_user_path , class: "btn btn-large btn-primary" %></span>
-
-
 <span><%= link_to "退会", user_path, :method => :delete , class: "btn btn-danger" %></span>
+
 

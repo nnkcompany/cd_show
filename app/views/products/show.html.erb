@@ -1,10 +1,9 @@
 <body>
-
-<div class="show_body">
-  <div class="col-lg-3">
-    <div class="image_show">
-    <%= attachment_image_tag @product, :cd_image, :fill, 300, 300 %>
-    </div>
+    <div class="show_body">
+        <div class="col-lg-3">
+            <div class="image_show">
+                <%= attachment_image_tag @product, :cd_image, :fill, 300, 300 %>
+            </div>
 
     <% if admin_signed_in? %>
       <div class="product_ad_sow">
@@ -20,57 +19,78 @@
     <% end %>
   </div>
 
-  <div cladss="row">
-    <div class="col-lg-9">
-      <table class="show_table" style="overflow-y:scroll;">
-        <tr>
-          <th class="show_title"><h4>アルバム・シングル名：</h4></th>
-          <td><%= @product.cd_name %></td>
-        </tr>
+        <div cladss="row">
+            <div class="col-lg-9">
+                <table class="show_table" style="overflow-y:scroll;">
+                    <tr>
+                        <th class="show_title">
+                            <h4>アルバム・シングル名：</h4>
+                        </th>
+                        <td>
+                            <%= @product.cd_name %>
+                        </td>
+                    </tr>
 
-        <tr>
-          <th><h4>アーティスト：</h4></th>
-          <td>
-            <div class="show_cont"><%= @product.artist_name %>&emsp;&emsp;</div>
-          </td>
-          <td>
-            <div class="show_cont"><%= @product.artist_name_kana %>&emsp;&emsp;</div>
-            </td>
-          <td>
-            <div class="show_cont"><%= @product.artist_name_eng %></div>
-            </td>
-        </tr>
+                    <tr>
+                        <th>
+                            <h4>アーティスト：</h4>
+                        </th>
+                        <td>
+                            <div class="show_cont"><%= @product.artist_name %>&emsp;&emsp;</div>
+                        </td>
+                        <td>
+                            <div class="show_cont"><%= @product.artist_name_kana %>&emsp;&emsp;</div>
+                        </td>
+                        <td>
+                            <div class="show_cont"><%= @product.artist_name_eng %></div>
+                        </td>
+                    </tr>
 
-        <tr>
-          <th><h4>レーベル：</h4></th>
-          <td>
-            <div class="show_cont"><%= @product.label_name %>&emsp;&emsp;</div>
-            </td>
-          <td>
-            <div class="show_cont"><%= @product.label_name_kana %>&emsp;&emsp;</div>
-            </td>
-          <td>
-            <div class="show_cont"><%= @product.label_name_eng %></div>
-            </td>
-        </tr>
+                    <tr>
+                        <th>
+                            <h4>レーベル：</h4>
+                        </th>
+                        <td>
+                            <div class="show_cont"><%= @product.label_name %>&emsp;&emsp;</div>
+                        </td>
+                        <td>
+                            <div class="show_cont"><%= @product.label_name_kana %>&emsp;&emsp;</div>
+                        </td>
+                        <td>
+                            <div class="show_cont"><%= @product.label_name_eng %></div>
+                        </td>
+                    </tr>
 
-        <tr>
-          <th><h4>ジャンル：</h4></th>
-          <td><%= @product.category %></td>
-        </tr>
+                    <tr>
+                        <th>
+                            <h4>ジャンル：</h4>
+                        </th>
+                        <td>
+                            <%= @product.category %>
+                        </td>
+                    </tr>
 
-        <tr>
-          <th><h4>在庫数：</h4></th>
-          <td><%= @product.quantity %></td>
-        </tr>
+                    <tr>
+                        <th>
+                            <h4>在庫数：</h4>
+                        </th>
+                        <td>
+                            <%= @product.quantity %>
+                        </td>
+                    </tr>
 
-        <tr>
-          <th><h4>価格：</h4></th>
-          <td>￥&emsp;<%= @product.price %></td>
-        </tr>
+                    <tr>
+                        <th>
+                            <h4>価格：</h4>
+                        </th>
+                        <td>
+                          ￥&emsp;<%= @product.price %>
+                        </td>
+                    </tr>
 
-      </table>
-    </div>
+                </table>
+            </div>
+
       <% if user_signed_in? %>
     <div class="col-lg-3" style="width: 210px;">
       <button type="button" style="font-size: 15px; margin-bottom: 5px;     margin-top: 17px; padding: 0px; border: 0px;" ><%=link_to "カートに入れる", product_product_carts_path(@product.id), method: :post , class: "btn btn-warning" %></button><br>
@@ -78,6 +98,7 @@
       <% end %>
   </div>
 </div>
+
 <table class="disc_ds">
 <div class="" style="width: 55%;">
   <% @discs.discs.each do |disc| %>
@@ -96,11 +117,9 @@
             </td>
           </tr>
         <% end %>
-      </div>
-  <% end %>
-</div>
-</table>
 
+      </div>
+    </table>
 </body>
 
 
