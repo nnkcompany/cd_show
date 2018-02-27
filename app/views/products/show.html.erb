@@ -5,21 +5,19 @@
                 <%= attachment_image_tag @product, :cd_image, :fill, 300, 300 %>
             </div>
 
-            <% if admin_signed_in? %>
-                <div class="product_ad_sow">
-                    <table>
-                        <tr>
-                        <th>
-                            <button type="button" class="btn btn-success" style="font-size: 15px; margin: 0 20px 5px 0;  padding: 6px 12px; font-weight: lighter;" ><%=link_to "編集画面へ", edit_admins_product_path(@product.id) %></button><br>
-                        </th>
-                        <td>
-                            <button type="button" class="btn btn-danger" style="font-color: 15px; margin-bottom: 5px;"><%=link_to "商品を削除する", destroy_product_path(@product.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></button><br>
-                        </td>
-                        </tr>
-                    </table>
-                </div>
-            <% end %>
-        </div>
+    <% if admin_signed_in? %>
+      <div class="product_ad_sow">
+        <table>
+          <tr>
+            <th><button type="button" style="font-size: 15px; margin: 0 20px 5px 0;  padding: 0px; border: 0px; font-weight: lighter;" ><%=link_to "編集画面へ", edit_admins_product_path(@product.id) , class: "btn btn-success" %></button><br>
+            </th>
+            <td><button type="button" style=" margin-bottom: 5px;padding: 0px;border: 0px;"><%=link_to "商品を削除する", destroy_product_path(@product.id), method: :delete, data: {confirm: "本当に削除しますか？"} , class: "btn btn-danger" %></button><br>
+            </td>
+        </tr>
+        </table>
+      </div>
+    <% end %>
+  </div>
 
         <div cladss="row">
             <div class="col-lg-9">
@@ -93,39 +91,35 @@
                 </table>
             </div>
 
-            <% if user_signed_in? %>
-                <div class="col-lg-3" style="width: 210px;">
-                    <button type="button" class="btn btn-warning" style="font-size: 15px; margin-bottom: 5px;     margin-top: 17px;" >
-                      <%=link_to "カートに入れる", product_product_carts_path(@product.id), method: :post %></button><br>
-                </div>
-            <% end %>
-        </div>
+      <% if user_signed_in? %>
+    <div class="col-lg-3" style="width: 210px;">
+      <button type="button" style="font-size: 15px; margin-bottom: 5px;     margin-top: 17px; padding: 0px; border: 0px;" ><%=link_to "カートに入れる", product_product_carts_path(@product.id), method: :post , class: "btn btn-warning" %></button><br>
     </div>
-    <table class="disc_ds">
-      <div class="" style="width: 55%;">
-          <% @discs.discs.each do |disc| %>
-              <tr>
-                  <th>
-                      <h4 class="disc_n" ><%= disc.disc_number %></h4>
-                  </th>
-                  <td>
-                      <h4 class="disc_n"><%= disc.disc_name %></h4><br>
-                  </td>
-              </tr>
-              <div class="disc_s">
-                  <% disc.songs.each do |song| %>
-                  <tr>
-                      <th>
-                          <%= song.song_number %>&emsp;
-                      </th>
-                      <td>
-                          <div class="disc_s"><%= song.song_title %></div><br>
-                      </td>
-                  </tr>
-                   <% end %>
-               </div>
-          <% end %>
+      <% end %>
+  </div>
+</div>
+
+<table class="disc_ds">
+<div class="" style="width: 55%;">
+  <% @discs.discs.each do |disc| %>
+    <tr>
+      <th><h4 class="disc_n" ><%= disc.disc_number %></h4></th>
+      <td><h4 class="disc_n"><%= disc.disc_name %></h4><br></td>
+    </tr>
+      <div class="disc_s">
+        <% disc.songs.each do |song| %>
+          <tr>
+            <th>
+              <%= song.song_number %>&emsp;
+              </th>
+            <td>
+              <div class="disc_s"><%= song.song_title %></div><br>
+            </td>
+          </tr>
+        <% end %>
+
       </div>
     </table>
 </body>
+
 

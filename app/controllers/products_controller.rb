@@ -1,5 +1,10 @@
 class ProductsController < ApplicationController
 
+
+# 	def new
+	# 	@product = Product.new
+# 	end
+
 	def index
 		# @products = Product.page(params[:page]).reverse_order
 		@products = Product.all.reverse_order
@@ -15,7 +20,6 @@ class ProductsController < ApplicationController
 
 	def edit
 		@product = Product.find(params[:id])
-
 	end
 
 	def new
@@ -29,7 +33,6 @@ class ProductsController < ApplicationController
 	def update
 		@product = Product.find(params[:id])
 		@product.update(product_params)
-		redirect_to product_path(@product.id)
 	end
 
 
