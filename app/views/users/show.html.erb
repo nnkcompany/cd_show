@@ -1,32 +1,38 @@
 <h1>ユーザー詳細</h1>
 
-<table>
+<table border="" class="user_show">
 
 	<thead>
 		<tr>
-			<th>last_name</th>
-			<th>last_name_kana</th>
-			<th>first_name</th>
-			<th>first_name_kana</th>
-			<th>zip</th>
-			<th>address</th>
-			<th>tell</th>
-			<th>create_at</th>
+			<th class="show_th">苗字：&emsp;</th>
+			<td class="show_td">&emsp;<%= @user.last_name %></td>
+			<th class="show_th_s">名前：&emsp;</th>
+			<td>&emsp;<%= @user.first_name %></td>
+		</tr>
+		<tr>
+			<th class="show_th">みょうじ：&emsp;</th>
+			<td class="show_td">&emsp;<%= @user.last_name_kana %></td>
+			<th class="show_th_s">なまえ：&emsp;</th>
+			<td>&emsp;<%= @user.first_name_kana%></td>
+		</tr>
+		<tr>
+			<th class="show_th">郵便番号：&emsp;</th>
+			<td colspan="3">&emsp;<%= @user.zip %></td>
+		</tr>
+		<tr>
+			<th class="show_th">住所：&emsp;</th>
+			<td colspan="3">&emsp;<%= @user.address %></td>
+		</tr>
+		<tr>
+			<th class="show_th">電話番号：&emsp;</th>
+			<td colspan="3">&emsp;<%= @user.tell %></td>
+		</tr>
+		<tr>
+			<th class="show_th">会員登録日時：&emsp;</th>
+			<td colspan="3">&emsp;<%= @user.created_at %></td>
 		</tr>
 	</thead>
-	<tbody>
-		<tr>
-			<td><%= @user.last_name %></td>
-			<td><span><%= @user.last_name_kana %></span></td>
-			<td><span><%= @user.first_name %></span></td>
-			<td><span><%= @user.first_name_kana%></span></td>
-			<td><span><%= @user.zip %></span></td>
-			<td><span><%= @user.address %></span></td>
-			<td><span><%= @user.tell %></span></td>
-			<td><span><%= @user.created_at %></span></td>
 
-		</tr>
-	</tbody>
 </table>
 
 
@@ -38,8 +44,8 @@
 
 
 
-<span><%= link_to "ユーザー編集", edit_user_path %></span>
+<span><%= link_to "ユーザー編集", edit_user_path , class: "btn btn-large btn-primary" %></span>
 
 
-<span><%= link_to "退会", user_path, :method => :delete %></span>
+<span><%= link_to "退会", user_path, :method => :delete , class: "btn btn-danger" %></span>
 

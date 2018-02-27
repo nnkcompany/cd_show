@@ -10,9 +10,9 @@
       <div class="product_ad_sow">
         <table>
           <tr>
-            <th><button type="button" class="btn btn-success" style="font-size: 15px; margin: 0 20px 5px 0;  padding: 6px 12px; font-weight: lighter;" ><%=link_to "編集画面へ", edit_admins_product_path(@product.id) %></button><br>
+            <th><button type="button" style="font-size: 15px; margin: 0 20px 5px 0;  padding: 0px; border: 0px; font-weight: lighter;" ><%=link_to "編集画面へ", edit_admins_product_path(@product.id) , class: "btn btn-success" %></button><br>
             </th>
-            <td><button type="button" class="btn btn-danger" style="font-color: 15px; margin-bottom: 5px;"><%=link_to "商品を削除する", destroy_product_path(@product.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></button><br>
+            <td><button type="button" style=" margin-bottom: 5px;padding: 0px;border: 0px;"><%=link_to "商品を削除する", destroy_product_path(@product.id), method: :delete, data: {confirm: "本当に削除しますか？"} , class: "btn btn-danger" %></button><br>
             </td>
         </tr>
         </table>
@@ -73,7 +73,7 @@
     </div>
       <% if user_signed_in? %>
     <div class="col-lg-3" style="width: 210px;">
-      <button type="button" class="btn btn-warning" style="font-size: 15px; margin-bottom: 5px;     margin-top: 17px;" ><%=link_to "カートに入れる", product_product_carts_path(@product.id), method: :post %></button><br>
+      <button type="button" style="font-size: 15px; margin-bottom: 5px;     margin-top: 17px; padding: 0px; border: 0px;" ><%=link_to "カートに入れる", product_product_carts_path(@product.id), method: :post , class: "btn btn-warning" %></button><br>
     </div>
       <% end %>
   </div>
@@ -102,4 +102,5 @@
 </table>
 
 </body>
+
 

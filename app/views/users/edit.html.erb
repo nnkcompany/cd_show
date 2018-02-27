@@ -1,19 +1,46 @@
-<h1>ユーザー編集</h1>
-<%= form_for @user do |f| %>
-      <label>last_name</label>
-      <%= f.text_field :last_name, autofocus: true%></br>
-      <label>last_name_kana</label>
-      <%= f.text_field :last_name_kana, autofocus: true%></br>
-      <label>first_name</label>
-      <%= f.text_field :first_name, autofocus: true%></br>
-      <label>first_name_kana</label>
-      <%= f.text_field :first_name_kana, autofocus: true%></br>
-      <label>zip</label>
-      <%= f.text_field :zip, autofocus: true%></br>
-      <label>address</label>
-      <%= f.text_field :address, autofocus: true%></br>
-      <label>tell</label>
-      <%= f.text_field :tell, autofocus: true%></br>
+<div class="container">
+        <div class="col-md-12">
+        　    <h1 style="display:inline;">ユーザー編集</h1>
+      <hr>
+        </div>
 
-      <%= submit_tag "更新" %>
-<% end %>
+   <div class="row product_show">
+      <div class="col-md-12">
+      <ul>
+            <%= form_for @user do |f| %>
+            <label>苗字：
+               <%= f.text_field :last_name, autofocus: true%>
+                  &emsp;&emsp;&emsp;&emsp;&nbsp;
+               名前：<%= f.text_field :first_name, autofocus: true%>
+            </label>
+            </br></br>
+
+            <label>みょうじ：
+               <%= f.text_field :last_name_kana, autofocus: true%>
+                  &emsp;&emsp;
+               なまえ：<%= f.text_field :first_name_kana, autofocus: true%>
+            </label>
+            </br></br>
+
+            <label>郵便番号：</label>
+            <%= f.text_field :zip, autofocus: true%>
+            </br></br>
+
+            <label>住所：</label>
+            <%= f.text_field :address, autofocus: true%>
+            </br></br>
+
+            <label>電話番号：</label>
+            <%= f.text_field :tell, autofocus: true%>
+            </br></br>
+
+            <label>メールアドレス：</label>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </br></br>
+
+            <%= submit_tag "更新" , class: "btn btn-large btn-primary" %>
+            <% end %>
+      </ul>
+      </div>
+   </div>
+</div>

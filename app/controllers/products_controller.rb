@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
 
-	# def new
+	def new
 	# 	@product = Product.new
-	# end
+	end
 
 	def index
 		# @products = Product.page(params[:page]).reverse_order
@@ -19,13 +19,11 @@ class ProductsController < ApplicationController
 
 	def edit
 		@product = Product.find(params[:id])
-
 	end
 
 	def update
 		@product = Product.find(params[:id])
 		@product.update(product_params)
-		redirect_to product_path(@product.id)
 	end
 
 
