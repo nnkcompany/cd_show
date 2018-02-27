@@ -7,7 +7,7 @@
       <div class="col-lg-6" style="background-color: white; margin-top: 4px;">
 
         <p>
-          <label style="margin-bottom: 0px; padding-top: 5px;"><%= f.search_field :artist_name_or_artist_name_kana_or_artist_name_eng_or_cd_name_or_category_or_label_name_or_label_name_kana_or_label_name_eng_cont,size:45  %>
+          <label><%= f.search_field :artist_name_or_artist_name_kana_or_artist_name_eng_or_cd_name_or_category_or_label_name_or_label_name_kana_or_label_name_eng_cont,size:45  %>
           <input id="submit_button" type="submit" class="btn btn-primary" name="submit" value="検　索"></label>
         </p>
       </div>
@@ -62,11 +62,11 @@
 
 
 <div cladss="center-block">
-  <div class="col-lg-5" style="height: 40px;"></div>
-  <div class="col-lg-3" style="height: 40px; margin: -16px 0;">
+  <div class="col-lg-5"></div>
+  <div class="col-lg-3">
     <%= paginate @products, class: "pagenate" %>
   </div>
-  <div class="col-lg-4" style="height: 40px;"></div>
+  <div class="col-lg-4"></div>
 </div>
 
 
