@@ -4,8 +4,6 @@ layout 'admin.application'
 
 	def index
 		@product = Product.all
-		@products = Product.page(params[:page]).reverse_order
-		# @products = @q.result(distinct: true).page(params[:page])
 	end
 
 	def show
@@ -20,11 +18,8 @@ layout 'admin.application'
 		@product = Product.new(product_params)
 		@product.admin_id = current_admin.id
 		# binding.pry
-		if @product.save
-			redirect_to admins_products_path
-		else
-			redirect_to new_admins_product_path(params[:id])
-		end
+		@product.save
+		redirect_to admins_products_path
 	end
 
 	def new
@@ -36,12 +31,7 @@ layout 'admin.application'
 	def update
 		@product = Product.find(params[:id])
 		@product.update(product_params)
-		redirect_to @product
-		# if @product.update(product_params)
-		# 	redirect_to @product
-		# else
-		# 	redirect_to edit_admins_product_path(params[:id])
-		# end
+		redirect_to admins_products_path
 	end
 
 

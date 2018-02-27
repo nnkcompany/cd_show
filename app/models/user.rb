@@ -4,18 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-
-
-# 一般的なメールアドレスのフォーマットチェック
-  validates :zip, numericality: { only_integer: true }
-  validates :tell, numericality: { only_integer: true }
-
-
-  has_many :addresses
-  has_many :orders
-  has_one :cart
-
-
   def soft_delete
     update(deleted_at: Time.now)
   end
@@ -23,5 +11,10 @@ class User < ApplicationRecord
   def active_for_authentication?
    !deleted_at
   end
+
+
+  has_many :addresses
+  has_many :orders
+  has_one :cart
 
 end
