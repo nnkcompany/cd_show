@@ -4,4 +4,8 @@ class Address < ApplicationRecord
 
 	belongs_to :user
 
+	validates :zip, numericality: { only_integer: true }
+  	validates :tell, numericality: { only_integer: true }
+
+
 end
