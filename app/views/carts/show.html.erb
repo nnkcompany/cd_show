@@ -5,10 +5,23 @@
     <hr>
 	</div>
 
+	<% if current_user.cart.errors.any? %>
+	  <div id="error_explanation" class="alert alert-danger">
+	    <ul>
+	      <% current_user.cart.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+
+
 		<h3 class="my-3">カート中身</h3>
 		<% sum = 0%>
 		
 		<% current_user.cart.product_carts.each do |product_cart| %>
+<!-- 		<%= product_cart.errors.count %> -->
+
 		<ul>
 			<li class="text-left"><%= attachment_image_tag product_cart.product, :cd_image, :fill, 250, 250 %></li>
 			<li class="text-left">CD名：<%= product_cart.product.cd_name %></li>
