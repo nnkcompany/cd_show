@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+      member:
+        Email: メールアドレス
+        Password: パスワード
+        Tell: 電話番号
+        Zip: 郵便番号
+
