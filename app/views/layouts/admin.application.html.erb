@@ -15,7 +15,7 @@
           <ul class="nav navbar-nav navbar-left">
             <li>
               <%= link_to root_path do %>
-              <i class="glyphicon glyphicon-home"></i>nnk record 渋谷店
+              <i class="glyphicon glyphicon-home"></i>&nbsp;nnk record 渋谷店
               <% end %>
             </li>
           </ul>
@@ -27,33 +27,33 @@
             <!--ログイン中のヘッダー-->
             <li>
               <%= link_to admins_users_path do %>
-              <i class="glyphicon glyphicon-user"></i>admin/Users
+              <i class="glyphicon glyphicon-user"></i>&nbsp;admin／Users
               <% end %>
               
             </li>
 
             <li>
               <%= link_to admins_products_path do %>
-              <i class="glyphicon glyphicon-folder-open"></i>admin/Products
+              <i class="glyphicon glyphicon-folder-open"></i>&nbsp;admin／Products
               <% end %>
              
             </li>
             <li>
               <%= link_to admins_orders_path do %>
-              <i class="glyphicon glyphicon-shopping-cart"></i>admin/Orders
+              <i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;admin／Orders
               <% end %>
             </li>
 
             <li>
               <%= link_to destroy_user_session_path, :method => :delete do %>
-              <i class="glyphicon glyphicon-log-out"></i>Logout
+              <i class="glyphicon glyphicon-log-out"></i>&nbsp;Logout
               <% end %>
             </li>
             <% else %>
             <!--ログアウト中のヘッダー-->
             <li>
               <%= link_to new_user_session_path do %>
-              <i class="glyphicon glyphicon-log-in"></i>Login
+              <i class="glyphicon glyphicon-log-in"></i>&nbsp;Login
               <% end %>
             </li>
 
@@ -68,7 +68,7 @@
     <%= yield %>
   </body>
 
-<footer>
+<footer style="margin: 74px 0px;">
     <div class="sticky_a">
     <p style="color: white;"><small>Copyrighht © 2017 ABCD Co.,Ltd. All Rights Reserved.</small></p>
   </div>

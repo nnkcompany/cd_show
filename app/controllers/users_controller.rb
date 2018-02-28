@@ -18,8 +18,11 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(current_user.id)
-		@user.update(user_params)
-		redirect_to root_path
+		if @user.update(user_params)
+			redirect_to user_path(current_user.id)
+		else
+			redirect_to edit_user_path(@user)
+		end
 	end
 
 	def destroy

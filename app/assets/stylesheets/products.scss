@@ -84,9 +84,14 @@
 }
 
 .show_cont{
-	width: 252px;
+	width: 90%;
 	overflow-x: scroll;
 	white-space: nowrap;
+	font-size: 18px;
+}
+
+.show_coco{
+	font-size: 18px;
 }
 
  .th_tr{
@@ -112,9 +117,15 @@
 .disc_s{
 	overflow-x: scroll;
 	white-space: nowrap;
+	width: 100%;
 }
 
-
+.disc_ds{
+	margin-left: 27%;
+    margin-top: -5%;
+    padding-left: 7px;
+    padding-bottom: 6px;
+}
 
 
 
