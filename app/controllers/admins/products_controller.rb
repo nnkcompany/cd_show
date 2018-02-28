@@ -4,8 +4,6 @@ layout 'admin.application'
 
 	def index
 		@product = Product.all
-		@products = Product.page(params[:page]).reverse_order
-		# @products = @q.result(distinct: true).page(params[:page])
 	end
 
 	def show
