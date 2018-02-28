@@ -23,7 +23,7 @@ layout 'admin.application'
 		if @product.save
 			redirect_to admins_products_path
 		else
-			redirect_to new_admins_product_path(params[:id])
+			redirect_to new_admins_product_path
 		end
 	end
 
@@ -36,7 +36,7 @@ layout 'admin.application'
 	def update
 		@product = Product.find(params[:id])
 		@product.update(product_params)
-		redirect_to @product
+		redirect_to admins_product(@product)
 	end
 
 
