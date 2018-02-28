@@ -29,11 +29,10 @@ end
 
 private
 		def product_cart_params
-	  		params.permit(:product_id, :cart_id)
+	  		params.permit(:product_id, :cart_id ,:quantity)
 		end
 
 		def product_cart_update_params
 	  		params.require(:product_cart).permit(:product_id, :cart_id ,:quantity)
 		end
-
 end
