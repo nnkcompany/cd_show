@@ -77,7 +77,13 @@
                             <h4>在庫数：</h4>
                         </th>
                         <td>
-                            <%= @product.quantity %>
+                        <% zaiko = @product.quantity %>
+                        <p>
+                        <% if zaiko == 0 then %>
+                        在庫がありません。
+                        <% else %>
+                        在庫が<%= zaiko %>個あります。
+                        <% end %>
                         </td>
                     </tr>
 

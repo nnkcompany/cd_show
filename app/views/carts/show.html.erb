@@ -14,7 +14,8 @@
 			<li class="text-left">CD名：<%= product_cart.product.cd_name %></li>
 			<li class="text-left">アーティスト名：<%= product_cart.product.artist_name %></li>
 			<li class="text-left">値段：<%= product_cart.product.price %>円</li>
-			<li class="text-left">個数：<%= product_cart.quantity %>個</li>
+			<li class="text-left">在庫数：<%= product_cart.product.quantity %>個</li>
+			<li class="text-left">購入数：<%= product_cart.quantity %>個</li>
 			<%= form_for product_cart, url: product_product_carts_path(product_cart.product_id) , html: {method: "PATCH"} do |f| %>
 			<%= f.number_field :quantity %>
 			<%= f.submit "変更" %>
