@@ -5,16 +5,30 @@
     <hr>
 	</div>
 
+	<% if current_user.cart.errors.any? %>
+	  <div id="error_explanation" class="alert alert-danger">
+	    <ul>
+	      <% current_user.cart.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+
+
 		<h3 class="my-3">カート中身</h3>
 		<% sum = 0%>
 		
 		<% current_user.cart.product_carts.each do |product_cart| %>
+<!-- 		<%= product_cart.errors.count %> -->
+
 		<ul>
 			<li class="text-left"><%= attachment_image_tag product_cart.product, :cd_image, :fill, 250, 250 %></li>
 			<li class="text-left">CD名：<%= product_cart.product.cd_name %></li>
 			<li class="text-left">アーティスト名：<%= product_cart.product.artist_name %></li>
 			<li class="text-left">値段：<%= product_cart.product.price %>円</li>
-			<li class="text-left">個数：<%= product_cart.quantity %>個</li>
+			<li class="text-left">在庫数：<%= product_cart.product.quantity %>個</li>
+			<li class="text-left">購入数：<%= product_cart.quantity %>個</li>
 			<%= form_for product_cart, url: product_product_carts_path(product_cart.product_id) , html: {method: "PATCH"} do |f| %>
 			<%= f.number_field :quantity %>
 			<%= f.submit "変更" %>
