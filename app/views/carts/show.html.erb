@@ -18,19 +18,17 @@
 
 		<h3 class="my-3">カート中身</h3>
 		<% sum = 0%>
-		
-		<% current_user.cart.product_carts.each do |product_cart| %>
-<!-- 		<%= product_cart.errors.count %> -->
 
+		<% current_user.cart.product_carts.each do |product_cart| %>
 		<ul>
-			<li class="text-left"><%= attachment_image_tag product_cart.product, :cd_image, :fill, 150, 150 %></li>
+			<li class="text-left"><%= attachment_image_tag product_cart.product, :cd_image, :fill, 250, 250 %></li>
 			<li class="text-left">CD名：<%= product_cart.product.cd_name %></li>
 			<li class="text-left">アーティスト名：<%= product_cart.product.artist_name %></li>
 			<li class="text-left">値段：<%= product_cart.product.price %>円</li>
 			<li class="text-left">在庫数：<%= product_cart.product.quantity %>個</li>
 			<li class="text-left">購入数：<%= product_cart.quantity %>個</li>
 			<%= form_for product_cart, url: product_product_carts_path(product_cart.product_id) , html: {method: "PATCH"} do |f| %>
-			<%= f.number_field :quantity %>
+			<%= f.number_field :quantity, max: "#{product_cart.product.quantity}" %>
 			<%= f.submit "変更" %>
 			<% end %>
 
@@ -44,9 +42,14 @@
 	<%=link_to "買い物を続ける", products_path, class: "btn btn-default col-xs-3 col-xs-offset-2" %>
 
 
-	<%= link_to_if(@product_carts,"レジに進む",{ :controller => "order", :action => "new" }) %>
+		<% current_user.cart.product_carts.first(1).each do |product_cart| %>
+				<% if product_cart.product_id > 0 %>
+				<%=link_to "レジに進む", new_order_path, class: "btn btn-success col-xs-3 col-xs-offset-2" %>
+				<% end %>
+		<% end %>
 
-	<%=link_to "レジに進む", new_order_path, class: "btn btn-success col-xs-3 col-xs-offset-2" %>
+
+
 	</div>
 </div>
 

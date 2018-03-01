@@ -88,14 +88,18 @@
                     </tr>
 
                 </table>
-            </div>
+                <% if user_signed_in? %>
 
-            <% if user_signed_in? %>
-                <div class="col-lg-3" style="width: 210px;">
-                    <button type="button" class="btn btn-warning" style="font-size: 15px; margin-bottom: 5px; margin-top: 17px; padding: 0px; border: 0px;" >
-                      <%=link_to "カートに入れる", product_product_carts_path(@product.id), method: :post , class: "btn btn-warning" %></button><br>
+            <% if @product.quantity > 0 %>
+            <%=link_to "カートに入れる", product_product_carts_path(@product.id), method: :post , class: "btn btn-success  col-xs-2 col-xs-offset-2" %>
+            <% else %>
+            <%= link_to "売り切れ中です。", products_path, class: "btn btn-danger col-xs-2 col-xs-offset-2" %>
+            <% end %>
                 </div>
             <% end %>
+            </div>
+
+            
         </div>
     </div>
 

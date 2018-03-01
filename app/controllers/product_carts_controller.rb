@@ -1,5 +1,11 @@
 class ProductCartsController < ApplicationController
 
+
+def show
+	@product_cart = ProductCart.find(params[:id])
+end
+
+
 def create
 	# binding.pry
 	@product_cart = ProductCart.new(product_cart_params)
