@@ -3,8 +3,8 @@
         <div class="row product_show">
             <div class="col-md-3 text-center">
                 <%= f.attachment_field :cd_image %>
-                <div class="text-left">在庫数:<%=f.text_field :quantity %></div>
-                <div class="text-left">金額:<%=f.text_field :price %></div>
+                <div class="text-left">在庫数:<%=f.number_field :quantity, min: "0" %></div>
+                <div class="text-left">金額:<%=f.number_field :price , min: "0" %></div>
             </div>
 
             <div class="col-md-9">
