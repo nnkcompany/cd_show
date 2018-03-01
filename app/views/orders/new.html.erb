@@ -1,81 +1,107 @@
-<h1>購入確認</h1>
+<h1 class="title">購入 確認</h1>
 
 <% sum = 0 %>
 <% total_sum = 0 %>
 <% current_user.cart.product_carts.each do |product_cart| %>
 
-<hr>
 
-<div class="">
-	<table class="">
+
+<div class="order_d">
+	<table class="order_table">
 	    <thead>
-		  <tr>
-		  	<th colspan="2">商品名</th>
-		  	<th>商品の値段</th>
-		  	<th>購入個数</th>
-		  	<th>商品の合計金額</th>
+		  <tr class="order_thead">
+		  	<th colspan="2"  class="order_th">商品名</th>
+		  	<th class="order_th">商品の値段</th>
+		  	<th class="order_th">購入個数</th>
+		  	<th class="order_th">商品の合計金額</th>
 		  </tr>
 		</thead>
 		<tbody>
 		  <tr>
-		  	<td>
-		  		<ul class="text-left"><%= attachment_image_tag product_cart.product, :cd_image, :fill, 150, 150 %>
-		  		</ul>
-			</td>
-		  	<td class="order_pro">
-				<div class="col-ms-12">
-				<%= product_cart.product.cd_name %>
+		  	<div class="">
+			  <td style="width: 15%; border-style: ridge;">
+			  	<ul class="text-left"><%= attachment_image_tag product_cart.product, :cd_image, :fill, 150, 150 %>
+			  	</ul>
+			  </td>
+			  <td class="order_name">
+				<div>
+					<%= product_cart.product.cd_name %>
 				</div>
+				<div>
+					<%= product_cart.product.artist_name %>
+				</div>
+			  </td>
+			</div>
 
-				<div class="col-ms-12">
-				<%= product_cart.product.artist_name %>
-				</div>
+			<td class="order_td">
+			  <div class="">
+					<!-- 商品の値段 -->
+					<%= product_cart.product.price %>&nbsp;円
+			  </div>
 			</td>
-
-			<td>
-				<div class="col-ms-12">
-				<!-- 商品の値段 -->
-				<%= product_cart.product.price %>円
-				</div>
+			<td class="order_td">
+			  <div class="">
+					<!-- 商品個数 -->
+					<%= product_cart.quantity %>&nbsp;個
+			  </div>
 			</td>
-			<td>
-				<div class="col-ms-12">
-				<!-- 商品個数 -->
-				購入個数：<%= product_cart.quantity %>
-				</div>
-			</td>
-			<td>
-				<div class="col-ms-12">
-				<!-- 商品個数 -->
-				商品の合計金額：<%= product_cart.quantity * product_cart.product.price %>
-				<% product_total = product_cart.quantity * product_cart.product.price %>
-				</div>
+			<td class="order_td">
+			  <div class="">
+					<!-- 商品個数 -->
+					<%= product_cart.quantity * product_cart.product.price %>&nbsp;円
+					<% product_total = product_cart.quantity * product_cart.product.price %>
+			  </div>
 			</td>
 		  </tr>
 		</tbody>
 	</table>
+
+
+	<% total_sum += product_total %>
+
+</div>
+		<% end %>
+
+<div class="order_d_2">
+	<table class="order_table_2">
+		<tr class="order_thead_2">
+			<th class="order_thd">送料&nbsp;</th>
+			<th class="order_thd">支払金額&nbsp;</th>
+		</tr>
+		<tr>
+			<td class="order_thd">1000&nbsp;円&nbsp;</td>
+			<td class="order_thd"><%= total_sum + 1000 %>&nbsp;円&nbsp;</td>
+		</tr>
+	</table>
 </div>
 
-<% total_sum += product_total %>
-<hr>
-<% end %>
 
-<div class="col-ms-12">
-送料：1000円
-</div>
-<div class="col-ms-12">
-支払金額：<%= total_sum + 1000 %>円
-</div>
+
+<h2 class="title">配送先&emsp;氏名</h2>
 
 <%= form_for @order do |f| %>
-<%= f.text_field :last_name_kana, :value => current_user.last_name_kana %>
-<%= f.text_field :first_name_kana, :value => current_user.first_name_kana %>
+	<div>
+		<table class="order_send">
+			<tr class="send_tr">
+				<th class="send_th"><%= f.text_field :last_name, :value => current_user.last_name %>
+				</th>
+				<th class="send_th"><%= f.text_field :first_name, :value => current_user.first_name %>
+				</th>
+				<th rowspan="2">
+					<button type="button" class="send_sub" >&emsp;&emsp;<%= f.submit "購入", class: "btn btn-success btn-lg" %>
+					</button>
+				</th>
+			</tr>
+			<tr class="send_tr">
+				<th class="send_th"><%= f.text_field :last_name_kana, :value => current_user.last_name_kana %>
+				</th>
+				<th class="send_th"><%= f.text_field :first_name_kana, :value => current_user.first_name_kana %>
+				</th>
+			</tr>
 
+		</table>
+	</div>
 
-<%= f.text_field :last_name, :value => current_user.last_name %>
-<%= f.text_field :first_name, :value => current_user.first_name %>
-
-<%= f.submit "購入", class: "btn-sm btn btn-success" %>
 <% end %>
 
 
