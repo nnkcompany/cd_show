@@ -11,7 +11,6 @@ class User < ApplicationRecord
   validates :tell, numericality: { only_integer: true }
 
 
-  has_many :addresses
   has_many :orders
   has_one :cart
 

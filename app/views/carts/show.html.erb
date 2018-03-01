@@ -23,7 +23,7 @@
 <!-- 		<%= product_cart.errors.count %> -->
 
 		<ul>
-			<li class="text-left"><%= attachment_image_tag product_cart.product, :cd_image, :fill, 150, 150 %></li>
+			<li class="text-left"><%= attachment_image_tag product_cart.product, :cd_image, :fill, 250, 250 %></li>
 			<li class="text-left">CD名：<%= product_cart.product.cd_name %></li>
 			<li class="text-left">アーティスト名：<%= product_cart.product.artist_name %></li>
 			<li class="text-left">値段：<%= product_cart.product.price %>円</li>
@@ -42,10 +42,6 @@
 		<span>合計金額<%= sum %>円</span>
 	<div class="col-xs-12">
 	<%=link_to "買い物を続ける", products_path, class: "btn btn-default col-xs-3 col-xs-offset-2" %>
-
-
-	<%= link_to_if(@product_carts,"レジに進む",{ :controller => "order", :action => "new" }) %>
-
 	<%=link_to "レジに進む", new_order_path, class: "btn btn-success col-xs-3 col-xs-offset-2" %>
 	</div>
 </div>

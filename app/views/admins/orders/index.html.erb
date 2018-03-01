@@ -16,7 +16,7 @@
 						<% @orders.each do |order| %>
 						<tr>
 							<td><%= order.id %></td>
-							<td><%= order.user.last_name %><%= order.user.first_name %></td>
+							<td><%= order.last_name %><%= order.first_name %></td>
 							<td><%= order.status %></td>
 							<td><%= order.created_at.strftime("%m#{"月"}%d#{"日"}%R") %></td>
 							<td><%= link_to "詳細", admins_order_path(order.id), class: "btn btn-success" %></td>

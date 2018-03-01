@@ -1,4 +1,4 @@
-<p>購入確認</p>
+<h1>購入確認</h1>
 
 <% sum = 0 %>
 <% total_sum = 0 %>
@@ -6,29 +6,54 @@
 
 <hr>
 
-<div class="col-ms-12">
-CDネーム：<%= product_cart.product.cd_name %>
-</div>
+<div class="">
+	<table class="">
+	    <thead>
+		  <tr>
+		  	<th colspan="2">商品名</th>
+		  	<th>商品の値段</th>
+		  	<th>購入個数</th>
+		  	<th>商品の合計金額</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		  	<td>
+		  		<ul class="text-left"><%= attachment_image_tag product_cart.product, :cd_image, :fill, 150, 150 %>
+		  		</ul>
+			</td>
+		  	<td class="order_pro">
+				<div class="col-ms-12">
+				<%= product_cart.product.cd_name %>
+				</div>
 
-<div class="col-ms-12">
-アーティストネーム：<%= product_cart.product.artist_name %>
-</div>
+				<div class="col-ms-12">
+				<%= product_cart.product.artist_name %>
+				</div>
+			</td>
 
-
-<div class="col-ms-12">
-<!-- 商品の値段 -->
-商品の値段：<%= product_cart.product.price %>円
-</div>
-
-<div class="col-ms-12">
-<!-- 商品個数 -->
-購入個数：<%= product_cart.quantity %>
-</div>
-
-<div class="col-ms-12">
-<!-- 商品個数 -->
-商品の合計金額：<%= product_cart.quantity * product_cart.product.price %>
-<% product_total = product_cart.quantity * product_cart.product.price %>
+			<td>
+				<div class="col-ms-12">
+				<!-- 商品の値段 -->
+				<%= product_cart.product.price %>円
+				</div>
+			</td>
+			<td>
+				<div class="col-ms-12">
+				<!-- 商品個数 -->
+				購入個数：<%= product_cart.quantity %>
+				</div>
+			</td>
+			<td>
+				<div class="col-ms-12">
+				<!-- 商品個数 -->
+				商品の合計金額：<%= product_cart.quantity * product_cart.product.price %>
+				<% product_total = product_cart.quantity * product_cart.product.price %>
+				</div>
+			</td>
+		  </tr>
+		</tbody>
+	</table>
 </div>
 
 <% total_sum += product_total %>
