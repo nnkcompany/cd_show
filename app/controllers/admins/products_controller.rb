@@ -18,8 +18,11 @@ layout 'admin.application'
 		@product = Product.new(product_params)
 		@product.admin_id = current_admin.id
 		# binding.pry
-		@product.save
-		redirect_to admins_products_path
+		if @product.save
+			redirect_to admins_products_path
+		else
+			redirect_to new_admins_product_path
+		end
 	end
 
 	def new
@@ -31,7 +34,7 @@ layout 'admin.application'
 	def update
 		@product = Product.find(params[:id])
 		@product.update(product_params)
-		redirect_to admins_products_path
+		redirect_to admins_product(@product)
 	end
 
 
