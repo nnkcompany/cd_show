@@ -14,3 +14,4 @@
 		s.cd_image = Rails.root.join("db/fixtures/images/sample.jpg").open
 	end
 end
+
