@@ -57,7 +57,7 @@
                     <%= product_order.created_at.strftime("%Y-%m-%d") %></td>
     </tr>
     <tr>
-      <td rowspan="4"><%= attachment_image_tag product_order.product, :cd_image, :fill, 100, 100,  fallback: "default.jpg"%></td>
+      <td rowspan="4"><%= attachment_image_tag product_order.product, :cd_image, :fill, 100, 100 %></td>
       <td><label>商品値段</label>
                     <%= product_order.product.price %>円
                     <% order_price = product_order.product.price %></td>

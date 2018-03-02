@@ -75,19 +75,23 @@
 				<%= link_to "削除", product_product_carts_path(product_cart.product_id, product_cart.id), method: :delete, data: { confirm: '本当に消しますか?'} ,class: "btn btn-danger" %>
 			</td>
 		  </tr>
+		  <% end %>
 		</tbody>
-		<% end %>
 	</table>
 	</div>
-	<table>
+</div>
+
+<div style="height: 40px;">
+	<table class="cart_table_2">
 		<tr>
-			<th class="send_cart">合計金額</th>
-			<th class="send_cart"><%= sum %>&emsp;円</th>
+			<th class="send_cart" style="background-color: lightgray;">合計金額&ensp;</th>
+			<th class="send_cart"><%= sum %>&ensp;円&emsp;</th>
 		</tr>
 	</table>
+</div>
+<hr>
 
-
-
+<div class="cart_thd">
 	<div class="col-xs-12">
 	<%=link_to "買い物を続ける", products_path, class: "btn btn-default col-xs-3 col-xs-offset-2" %>
 	<%=link_to "レジに進む", new_order_path, class: "btn btn-success col-xs-3 col-xs-offset-2" %>

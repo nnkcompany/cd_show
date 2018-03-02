@@ -76,16 +76,47 @@
 </div>
 
 
+<h2 class="title">登録者&emsp;情報</h2>
+	<div class="container">
+		<table class="order_send">
+			<tr class="send_tr">
+				<th class="send_th col-md-4"><%= current_user.last_name %>
+				</th>
+				<th class="send_th col-md-4"><%= current_user.first_name %>
+				</th>
+				<th class="send_th col-md-4"><%= current_user.address %>
+				</th>
+				<th class="send_th col-md-4"><%=  current_user.tell %>
+				</th>
+			</tr>
+			<tr class="send_tr">
+				<th class="send_th col-md-4"><%= current_user.last_name_kana %>
+				</th>
+				<th class="send_th col-md-4"><%= current_user.first_name_kana %>
+				</th>
+				<th class="send_th col-md-4"><%= current_user.zip %>
+				</th>
+				<th class="send_th col-md-4">
+				</th>
+			</tr>
 
-<h2 class="title">配送先&emsp;氏名</h2>
+		</table>
+	</div>
+
+
+<h2 class="title">配送先&emsp;指定</h2>
 
 <%= form_for @order do |f| %>
 	<div>
 		<table class="order_send">
 			<tr class="send_tr">
-				<th class="send_th"><%= f.text_field :last_name, :value => current_user.last_name %>
+				<th class="send_th"><%= f.text_field :last_name, :value => current_user.last_name,:placeholder => "苗字" %>
 				</th>
-				<th class="send_th"><%= f.text_field :first_name, :value => current_user.first_name %>
+				<th class="send_th"><%= f.text_field :first_name, :value => current_user.first_name,:placeholder => "名前" %>
+				</th>
+				<th class="send_th"><%= f.text_field :last_name, :value => current_user.address,:placeholder => "住所" %>
+				</th>
+				<th class="send_th"><%= f.text_field :first_name, :value => current_user.tell ,:placeholder => "電話番号"%>
 				</th>
 				<th rowspan="2">
 					<button type="button" class="send_sub" >&emsp;&emsp;<%= f.submit "購入", class: "btn btn-success btn-lg" %>
@@ -93,9 +124,13 @@
 				</th>
 			</tr>
 			<tr class="send_tr">
-				<th class="send_th"><%= f.text_field :last_name_kana, :value => current_user.last_name_kana %>
+				<th class="send_th"><%= f.text_field :last_name_kana, :value => current_user.last_name_kana,:placeholder => "苗字(かな)" %>
 				</th>
-				<th class="send_th"><%= f.text_field :first_name_kana, :value => current_user.first_name_kana %>
+				<th class="send_th"><%= f.text_field :first_name_kana, :value => current_user.first_name_kana,:placeholder => "名前(かな)" %>
+				</th>
+				<th class="send_th"><%= f.text_field :last_name, :value => current_user.zip,:placeholder => "郵便番号" %>
+				</th>
+				<th class="send_th">
 				</th>
 			</tr>
 
