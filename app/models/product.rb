@@ -8,7 +8,7 @@ class Product < ApplicationRecord
 	# has_many :carts, through: :product_carts
 
 	has_many :discs
-	belongs_to :admin
+	# belongs_to :admin
 	accepts_nested_attributes_for :discs, allow_destroy: true
 
 end

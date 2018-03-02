@@ -1,56 +1,109 @@
-<div class="container">
+<div class="container" style="margin-left: 5%;">
 
-	<div class="col-md-12">
+    <div class=""><br>
 　   <h1 style="display:inline;">カート情報</h1>
-    <hr>
-	</div>
+   <hr>
+    </div>
 
-	<% if current_user.cart.errors.any? %>
-	  <div id="error_explanation" class="alert alert-danger">
-	    <ul>
-	      <% current_user.cart.full_messages.each do |message| %>
-	        <li><%= message %></li>
-	      <% end %>
-	    </ul>
-	  </div>
-	<% end %>
-
-
-		<h3 class="my-3">カート中身</h3>
-		<% sum = 0%>
-
-		<% current_user.cart.product_carts.each do |product_cart| %>
-		<ul>
-			<li class="text-left"><%= attachment_image_tag product_cart.product, :cd_image, :fill, 250, 250 %></li>
-			<li class="text-left">CD名：<%= product_cart.product.cd_name %></li>
-			<li class="text-left">アーティスト名：<%= product_cart.product.artist_name %></li>
-			<li class="text-left">値段：<%= product_cart.product.price %>円</li>
-			<li class="text-left">在庫数：<%= product_cart.product.quantity %>個</li>
-			<li class="text-left">購入数：<%= product_cart.quantity %>個</li>
-			<%= form_for product_cart, url: product_product_carts_path(product_cart.product_id) , html: {method: "PATCH"} do |f| %>
-			<%= f.number_field :quantity, max: "#{product_cart.product.quantity}" %>
-			<%= f.submit "変更" %>
-			<% end %>
-
-			<% sum += product_cart.product.price %>
-			<%=link_to "詳細", product_path(product_cart.product.id) ,class: "btn btn-default" %>
-			<%= link_to "削除", product_product_carts_path(product_cart.product_id, product_cart.id), method: :delete, data: { confirm: '本当に消しますか?'} ,class: "btn btn-danger" %>
-			</ul>
-		<% end %>
-		<span>合計金額<%= sum %>円</span>
-	<div class="col-xs-12">
-	<%=link_to "買い物を続ける", products_path, class: "btn btn-default col-xs-3 col-xs-offset-2" %>
+    <% if current_user.cart.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <ul>
+          <% current_user.cart.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
 
-		<% current_user.cart.product_carts.first(1).each do |product_cart| %>
-				<% if product_cart.product_id > 0 %>
-				<%=link_to "レジに進む", new_order_path, class: "btn btn-success col-xs-3 col-xs-offset-2" %>
-				<% end %>
-		<% end %>
+    <h3 class="">カート中身</h3>
+    <% sum = 0 %>
+    <% count = 0 %>
+    <% current_user.cart.product_carts.each do |product_cart| %>
 
+    <div class="cart_d">
+    <table class="cart_table">
+        <thead>
+          <tr class="cart_thead">
+              <th colspan="2"  class="cart_th">商品名</th>
+              <th class="cart_th">商品の値段</th>
+              <th class="cart_th">在庫数</th>
+              <th class="cart_th">購入数</th>
+              <th class="cart_th"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <div class="">
+              <td style="width: 15%; border-style: ridge;">
+                  <ul class="text-left_c"><%= attachment_image_tag product_cart.product, :cd_image, :fill, 150, 150 %>
+                  </ul>
+              </td>
+              <td class="cart_name">
+                <div>
+                    <%= product_cart.product.cd_name %>
+                </div>
+                <div>
+                    <%= product_cart.product.artist_name %>
+                </div>
+              </td>
+            </div>
 
-
-	</div>
+            <td class="cart_td">
+              <div class="">
+                <%= product_cart.product.price %>&nbsp;円
+              </div>
+            </td>
+            <td class="cart_td">
+              <div class="">
+                  <!-- 在庫数 -->
+                <%= product_cart.product.quantity %>&nbsp;個
+              </div>
+            </td>
+            <td class="cart_td">
+              <div class="">
+                  <!-- 購入数 -->
+                <%= product_cart.quantity %>個</li>
+                <%= form_for product_cart, url: product_product_carts_path(product_cart.product_id) , html: {method: "PATCH"} do |f| %>
+               <%= f.number_field :quantity, max: "#{product_cart.product.quantity}" %>
+      <%= f.submit "変更" %>
+                <% end %>
+              </div>
+            </td>
+            <td class="cart_td">
+                <% sum += product_cart.product.price %>
+                <% count += product_cart.quantity %>
+                <%=link_to "詳細", product_path(product_cart.product.id) ,class: "btn btn-default" %>
+                <%= link_to "削除", product_product_carts_path(product_cart.product_id, product_cart.id), method: :delete, data: { confirm: '本当に消しますか?'} ,class: "btn btn-danger" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+    </table>
+    </div>
 </div>
 
+<div style="height: 40px;">
+    <table class="cart_table_2">
+        <tr>
+            <th class="send_cart" style="background-color: lightgray;">合計金額&ensp;</th>
+            <th class="send_cart">
+              <%= sum * count %>&ensp;円&emsp;</th>
+        </tr>
+    </table>
+</div>
+<hr>
 
+<div class="cart_thd">
+    <div class="col-xs-12">
+   <%=link_to "買い物を続ける", products_path, class: "btn btn-default col-xs-3 col-xs-offset-2" %>
+
+
+    <% current_user.cart.product_carts.first(1).each do |product_cart| %>
+        <% if product_cart.product_id > 0 %>
+        <%=link_to "レジに進む", new_order_path, class: "btn btn-success col-xs-3 col-xs-offset-2" %>
+        <% end %>
+    <% end %>
+
+    </div>
+</div>

@@ -1,3 +1,34 @@
-// Place all the styles related to the carts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.text-left_c{
+   margin: 5px -100px 5px 0px;
+   width: 100%;
+   padding-left: 20px;
+}
+.cart_name{
+   line-height: 30px;
+   font-size: 17px;
+   padding-bottom: 9px;
+   width: 42%;
+   overflow-x: scroll;
+    white-space: nowrap;
+    border-style: ridge;
+}
+.cart_td{
+    border-style: ridge;
+    font-size: 17px;
+    text-align: center;
+}
+.cart_table_2{
+    margin: 15px 0px 0px 73%;
+   width: 20%;
+}
+.cart_thd{
+   margin-bottom: 40px;
+}
+.send_cart{
+    border-style: ridge;
+   border-color: #888084;
+   text-align: right;
+    font-size: 19px;
+    line-height: 35px;
+}

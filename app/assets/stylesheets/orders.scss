@@ -2,11 +2,101 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.order_pro{
-	padding-left: 20px;
-    line-height: 28px;
-    font-size: 17px;
-    padding-bottom: 9px;
+.title{
+   text-align: center;
+   line-height: 45px;
 }
 
+
+/* 購入確認 */
+
+.order_d{
+   width: 95%;
+   margin: auto;
+}
+
+.order_table{
+   width: 100%;
+}
+
+.order_thead{
+   background-color: lightgray;
+   width: 100%;
+}
+
+.order_th{
+   text-align: center;
+   font-size: 18px;
+   border-style: ridge;
+}
+
+.text-left {
+  text-align: left;
+  margin: 5px -100px 5px 0px;
+  width: 100%;
+  padding-left: 30px;
+}
+
+.order_name{
+  line-height: 30px;
+  font-size: 17px;
+  padding-bottom: 9px;
+  width: 50%;
+  overflow-x: scroll;
+   white-space: nowrap;
+   border-style: ridge;
+}
+
+.order_td{
+   border-style: ridge;
+   font-size: 17px;
+   text-align: center;
+}
+
+/* 送料と支払い金額 */
+
+.order_d_2{
+   border-style: ridge;
+   margin: 1% 70%;
+   width: 20%;
+   font-size: 18px;
+   text-align: center;
+   line-height: 36px;
+}
+
+.order_table_2{
+   width: 100%;
+}
+
+.order_thead_2{
+   background-color: lightgray;
+   width: 100%;
+}
+
+.order_thd{
+   text-align: right;
+   border-style: ridge;
+}
+
+/* 配送先の氏名 */
+
+.order_send{
+   margin: auto;
+}
+
+.send_tr{
+   font-size: 20px;
+}
+
+.send_th{
+   border-style: ridge;
+  border-color: #888084;
+}
+
+.send_sub{
+   margin: 0 20px 5px 0;
+   padding: 0px;
+   border: 0px;
+   font-weight: lighter;
+}
 
