@@ -68,3 +68,5 @@ gem 'jquery-rails'
 gem 'ransack'
 
 gem 'rails-i18n'
+
+gem 'seed-fu'
